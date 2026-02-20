@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Śruti — That Which Was Heard</title>
+<meta name="description" content="Mapping Vedic archetypes in Tolkien's Lord of the Rings. Cross-tradition scholarship from the Mahābhārata to Middle-earth.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #F5F0E8;
+  --parchment-deep: #EDE6D6;
+  --ink: #2C1810;
+  --ink-light: #4A3728;
+  --ink-faded: #6B5744;
+  --gold: #B8860B;
+  --gold-light: #D4A842;
+  --gold-glow: #E8C86840;
+  --gold-subtle: #D4A84220;
+  --saffron: #C77D2A;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    overscroll-behavior-y: none;
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 19px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, #D4A84208 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, #B8860B05 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 100svh; /* stable mobile viewport */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  padding-top: calc(4rem + env(safe-area-inset-top));
+  padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
+  overflow: hidden;
+}
+.hero-devanagari {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 1.4rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+  opacity: 0; animation: fadeDown 1.2s ease 0.3s forwards;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 300;
+  color: var(--ink);
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  opacity: 0; animation: fadeUp 1.2s ease 0.5s forwards;
+}
+.hero-subtitle {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--ink-faded);
+  letter-spacing: 0.12em;
+  margin-bottom: 3rem;
+  opacity: 0; animation: fadeUp 1.2s ease 0.8s forwards;
+}
+.hero-divider {
+  width: 80px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin-bottom: 3rem;
+  opacity: 0; animation: fadeIn 1.5s ease 1.1s forwards;
+}
+.hero-essay-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
+  max-width: 600px;
+  margin-bottom: 0.75rem;
+  opacity: 0; animation: fadeUp 1.2s ease 1.3s forwards;
+}
+.hero-essay-sub {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--ink-faded);
+  margin-bottom: 1rem;
+  opacity: 0; animation: fadeUp 1.2s ease 1.5s forwards;
+}
+.hero-author {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.95rem;
+  color: var(--ink-faded);
+  letter-spacing: 0.1em;
+  opacity: 0; animation: fadeUp 1.2s ease 1.7s forwards;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: fadeIn 1.5s ease 2.2s forwards, float 3s ease-in-out infinite 2.5s;
+}
+.hero-scroll svg { width: 24px; height: 24px; stroke: var(--gold); stroke-width: 1.5; fill: none; }
+/* ARTICLE */
+.article {
+  position: relative; z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 2rem 6rem;
+}
+/* WATERCOLOR PLACEHOLDERS */
+.watercolor-placeholder {
+  width: 100%; margin: 3rem 0;
+  padding: 4rem 2rem;
+  border: 1px dashed var(--gold-light);
+  border-radius: 4px;
+  background: var(--gold-subtle);
+  text-align: center;
+}
+.wp-label {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.85rem; font-style: italic;
+  color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase;
+}
+.wp-desc {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.95rem; color: var(--ink-faded); margin-top: 0.5rem; font-style: italic;
+}
+/* HEADINGS */
+.section-number {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--gold); letter-spacing: 0.25em;
+  text-transform: uppercase; margin-bottom: 0.5rem; display: block;
+}
+h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.3rem);
+  font-weight: 400; color: var(--ink);
+  line-height: 1.25; margin-bottom: 1.5rem; margin-top: 4rem;
+}
+h2:first-of-type { margin-top: 0; }
+h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-weight: 500; color: var(--ink-light);
+  line-height: 1.3; margin-top: 2.5rem; margin-bottom: 1rem;
+}
+/* TEXT */
+p { margin-bottom: 1.25rem; color: var(--ink-light); }
+strong { color: var(--ink); font-weight: 600; }
+.sanskrit-term { color: var(--ink); font-style: italic; font-weight: 500; }
+.gold-term { color: var(--saffron); font-weight: 500; }
+/* DIVIDERS */
+.divider {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1.5rem; margin: 4rem 0; opacity: 0.6;
+}
+.divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.divider-symbol {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 1.1rem; color: var(--gold); line-height: 1;
+}
+/* MAPPING CARDS */
+.mapping {
+  background: linear-gradient(135deg, var(--parchment-deep), #F0E8D8);
+  border-left: 3px solid var(--gold);
+  padding: 1.25rem 1.5rem; margin: 1.75rem 0; border-radius: 0 4px 4px 0;
+}
+.mapping-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem;
+}
+.mapping p { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--ink-faded); }
+.mapping p:last-child { margin-bottom: 0; }
+/* BLOCKQUOTES */
+blockquote {
+  border: none; margin: 2.5rem 0; padding: 1.5rem 2rem;
+  position: relative; text-align: center;
+}
+blockquote::before {
+  content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 2px; background: var(--gold);
+}
+blockquote p {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem; font-weight: 400; font-style: italic;
+  color: var(--ink); line-height: 1.5; margin-bottom: 0.5rem;
+}
+blockquote cite {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.85rem; font-style: normal; color: var(--gold); letter-spacing: 0.1em;
+}
+/* CLOSING */
+.closing { text-align: center; padding: 4rem 0 2rem; }
+.closing-om { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 2rem; color: var(--gold); margin-bottom: 1rem; }
+.closing-mantra { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 1.1rem; color: var(--gold); margin-bottom: 1.5rem; letter-spacing: 0.05em; }
+.closing-line { font-family: 'EB Garamond', Georgia, serif; font-size: 1.05rem; font-style: italic; color: var(--ink-faded); }
+/* FOOTER */
+.footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--gold-subtle); margin-top: 2rem; }
+.footer p { font-size: 0.85rem; color: var(--ink-faded); letter-spacing: 0.05em; }
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes float { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+.fade-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-section.visible { opacity: 1; transform: translateY(0); }
+/* TOP NAV */
+.top-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--parchment); border-bottom: 1px solid var(--gold-subtle);
+  padding: 0.6rem 2rem; display: flex; align-items: center; justify-content: space-between;
+  transform: translateY(-100%); transition: transform 0.4s ease;
+}
+.top-nav.visible { transform: translateY(0); }
+.top-nav-brand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem; font-weight: 400; color: var(--ink);
+  letter-spacing: 0.08em; display: flex; align-items: center; gap: 0.5rem;
+  text-decoration: none; cursor: pointer;
+}
+.top-nav-brand .nav-deva {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 0.85rem; color: var(--gold);
+}
+.top-nav-toggle {
+  background: none; border: 1px solid var(--gold-subtle); border-radius: 4px;
+  padding: 0.3rem 0.75rem; font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.8rem; color: var(--ink-faded); cursor: pointer;
+  letter-spacing: 0.05em; transition: all 0.3s;
+}
+.top-nav-toggle:hover { border-color: var(--gold); color: var(--gold); }
+/* TOC SIDEBAR */
+.toc-panel {
+  position: fixed; top: 0; right: -320px; width: 300px; height: 100vh;
+  background: var(--parchment-deep); border-left: 1px solid var(--gold-subtle);
+  z-index: 200; padding: 4rem 1.5rem 2rem; overflow-y: auto;
+  transition: right 0.4s ease; box-shadow: -4px 0 20px rgba(0,0,0,0.05);
+}
+.toc-panel.open { right: 0; }
+.toc-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(44,24,16,0.2); z-index: 199;
+  opacity: 0; pointer-events: none; transition: opacity 0.4s;
+}
+.toc-overlay.open { opacity: 1; pointer-events: all; }
+.toc-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: none; border: none; font-size: 1.4rem;
+  color: var(--ink-faded); cursor: pointer; line-height: 1;
+}
+.toc-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.8rem; font-weight: 600; color: var(--gold);
+  letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem;
+}
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 0.4rem; }
+.toc-list a {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.9rem; color: var(--ink-faded); text-decoration: none;
+  display: block; padding: 0.35rem 0.75rem; border-radius: 3px;
+  border-left: 2px solid transparent; transition: all 0.3s;
+  line-height: 1.35;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--gold-subtle); }
+.toc-list a.active {
+  color: var(--ink); border-left-color: var(--gold);
+  background: var(--gold-subtle); font-weight: 500;
+}
+.toc-list .toc-sub {
+  font-size: 0.82rem; padding-left: 1.25rem; color: var(--ink-faded);
+}
+/* FOOTNOTES */
+.fn {
+  display: inline-block; font-size: 0.7rem; font-weight: 600;
+  color: var(--gold); cursor: pointer; vertical-align: super;
+  line-height: 1; margin: 0 1px; padding: 0 2px;
+  border-bottom: 1px dotted var(--gold-light); transition: color 0.2s;
+}
+.fn:hover { color: var(--saffron); }
+.footnote-panel {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+  background: linear-gradient(135deg, var(--parchment-deep), #F0E8D8);
+  border-left: 2px solid var(--gold); margin: 0.5rem 0; border-radius: 0 4px 4px 0;
+}
+.footnote-panel.open { max-height: 200px; }
+.footnote-panel-inner {
+  padding: 0.75rem 1rem; font-size: 0.85rem; color: var(--ink-faded);
+  font-style: italic; line-height: 1.5;
+}
+.footnote-panel-inner .fn-source {
+  font-style: normal; font-weight: 500; color: var(--ink-light);
+}
+/* PROGRESS BAR */
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 2px; z-index: 101;
+  background: linear-gradient(90deg, var(--gold), var(--saffron));
+  width: 0%; transition: width 0.1s;
+}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  body {
+    overscroll-behavior-y: none; font-size: 17px; }
+  .article { padding: 1.5rem 1.25rem 4rem; }
+  .mapping { padding: 1rem 1.25rem; }
+  blockquote { padding: 1.25rem 1rem; }
+  blockquote p { font-size: 1.2rem; }
+  .hero { min-height: 90vh; padding: 3rem 1.5rem; }
+  .toc-panel { width: 260px; right: -280px; }
+  .top-nav { padding: 0.5rem 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- TOP NAV -->
+<nav class="top-nav" id="topNav">
+  <a class="top-nav-brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <span class="nav-deva">श्रुति</span> Śruti
+  </a>
+  <button class="top-nav-toggle" onclick="toggleToc()">Contents ॥</button>
+</nav>
+
+<!-- TOC OVERLAY -->
+<div class="toc-overlay" id="tocOverlay" onclick="toggleToc()"></div>
+
+<!-- TOC PANEL -->
+<nav class="toc-panel" id="tocPanel">
+  <button class="toc-close" onclick="toggleToc()">×</button>
+  <div class="toc-title">Contents</div>
+  <ul class="toc-list">
+    <li><a href="#part1" onclick="tocNav(event)">I. Before the Split</a></li>
+    <li><a href="#part1-vedic" class="toc-sub" onclick="tocNav(event)">The Vedic World</a></li>
+    <li><a href="#part1-gudea" class="toc-sub" onclick="tocNav(event)">Gudea of Lagash</a></li>
+    <li><a href="#part1-babel" class="toc-sub" onclick="tocNav(event)">Babel ↔ Indra</a></li>
+    <li><a href="#part1-memories" class="toc-sub" onclick="tocNav(event)">Shared Memories</a></li>
+    <li><a href="#part1-sanskrit" class="toc-sub" onclick="tocNav(event)">Sanskrit as Devabhāṣā</a></li>
+    <li><a href="#part2" onclick="tocNav(event)">II. The Linguistic Bridge</a></li>
+    <li><a href="#part3" onclick="tocNav(event)">III. Character Archetypes</a></li>
+    <li><a href="#part3-arjuna" class="toc-sub" onclick="tocNav(event)">Arjuna ↔ Aragorn</a></li>
+    <li><a href="#part3-gandalf" class="toc-sub" onclick="tocNav(event)">Gandalf ↔ Krishna</a></li>
+    <li><a href="#part3-gollum" class="toc-sub" onclick="tocNav(event)">Gollum ↔ Aśvatthāmā</a></li>
+    <li><a href="#part4" onclick="tocNav(event)">IV. Cosmological Mapping</a></li>
+    <li><a href="#part5" onclick="tocNav(event)">V. Divine Signs & Omens</a></li>
+    <li><a href="#part6" onclick="tocNav(event)">VI. Light vs. Darkness</a></li>
+    <li><a href="#part7" onclick="tocNav(event)">VII. Structural Parallels</a></li>
+    <li><a href="#part8" onclick="tocNav(event)">VIII. The Warrior's Pantheon</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-devanagari">श्रुति</div>
+  <h1 class="hero-title">Śruti</h1>
+  <p class="hero-subtitle">That Which Was Heard</p>
+  <div class="hero-divider"></div>
+  <p class="hero-essay-title">The Mahābhārata in Middle-earth</p>
+  <p class="hero-essay-sub">Mapping Vedic Archetypes in Tolkien's Lord of the Rings</p>
+  <p class="hero-author">Braxton · February 2026</p>
+  <div class="hero-scroll"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+</header>
+
+<main class="article">
+
+<!-- SECTION I -->
+<section class="fade-section">
+<span class="section-number">Part I</span>
+<h2 id="part1">Before the Split — Babel, Sumer & the Original Tongue</h2>
+
+<p>The mapping between the Mahābhārata and Lord of the Rings is not coincidence. It points to something older and deeper — a shared memory preserved across civilizations that predates any single tradition. To understand why Tolkien's mythology echoes the Vedas so precisely, we must begin before the split.</p>
+
+<h3 id="part1-vedic">The Vedic World & Its Sumerian Neighbors</h3>
+<p>The Vedic civilization did not exist in isolation. By the third millennium BCE, the Indus Valley — home to the great cities of Harappa and Mohenjo-daro — was already an advanced urban culture with sophisticated drainage systems, standardized weights, and extensive trade networks. The Sumerians of Mesopotamia called this civilization <span class="sanskrit-term">Meluhha</span>. Cuneiform tablets from as early as 2350 BCE record Meluhhan ships docking at Akkadian ports, carrying carnelian beads, lapis lazuli, ivory, and timber. Sargon of Akkad himself boasted that ships from Meluhha, Magan, and Dilmun moored at the quays of his capital. There were even Meluhhan trading villages established within Sumerian cities — Indus Valley merchants living in Mesopotamia, their seals found at Ur, Babylon, and Kish.</p>
+<p>Among the thousands of seals excavated from Mohenjo-daro, one stands above the rest: the <strong>Pashupati seal</strong>, dated to approximately 2500 BCE. It depicts a figure seated in a yogic posture — cross-legged, hands on knees, in what appears to be <span class="sanskrit-term">padmāsana</span> — surrounded by animals: a tiger, an elephant, a rhinoceros, a buffalo, and deer beneath his throne. The figure wears a horned headdress and has been widely identified as <strong>Proto-Śiva</strong>, an early form of the god who would become Paśupati — Lord of Animals, Yogeśvara — Lord of Yoga, Mahādeva — the Great God. This is a figure seated in meditation four and a half thousand years ago. The practice of dhyāna, the stillness that would flow through the Vedas, through the Buddha, through Zen — it was already there, carved in steatite, in the Indus Valley, while Sumerians were writing cuneiform next door.</p>
+
+<h3 id="part1-gudea">Gudea of Lagash — The King Who Knew Meluhha</h3>
+<p><strong>Gudea</strong>, ruler (<span class="sanskrit-term">ensi</span>) of the Sumerian city-state of Lagash (c. 2144–2124 BCE), is the living proof of this connection. His own inscriptions — the Gudea cylinders, the longest known text written in the Sumerian language — explicitly mention Meluhha as a source of materials for his great temple-building projects.<span class="fn" onclick="toggleFn('gudea')">3</span> In the cylinders, Gudea records procuring "blocks of lapis lazuli and bright carnelian from Meluhha." He writes that "Magan and Meluhha will come down from their mountains to attend" his temple. Meluhhan emissaries arrived in Lagash bearing gold dust, carnelian, and exotic goods from the Indus Valley. Gudea was not trading with an abstraction — he was receiving craftsmen and materials from the civilization that produced the Pashupati seal.</p>
+<div class="footnote-panel" id="fn-gudea"><div class="footnote-panel-inner"><span class="fn-source">Gudea Cylinder B, XIV; Cylinder A, IX.</span> The cylinders were found in 1877 at Telloh (ancient Girsu) and are displayed in the Louvre. See Edzard, D.O., <em>Gudea and his Dynasty</em>, Royal Inscriptions of Mesopotamia, Vol. 3/1 (University of Toronto Press, 1997).</div></div>
+<p>And then there are the statues. Over twenty-seven diorite statues of Gudea survive, now scattered between the Louvre and the Metropolitan Museum. In every one, Gudea sits in the same posture: hands clasped, eyes heavy-lidded or lowered, feet together, radiating what art historians describe as "pious reserve and serenity" — a state of "perpetual prayer" and "quiet dignity." These statues were placed in temples to represent Gudea in constant devotion before the gods, offering prayer in his stead even when he was not present. The serene, meditative quality of these figures — carved from the hardest diorite, imported from Magan — is unmistakable.</p>
+<p>Look at the Pashupati seal: a figure in yogic stillness, circa 2500 BCE, from the Indus Valley. Look at Gudea's statues: a king in meditative composure, circa 2125 BCE, from Sumer — a king who was in direct, documented contact with the Indus civilization. The transmission is not speculative. It is carved in stone on both sides of the Arabian Sea. The stillness traveled with the carnelian and the lapis lazuli.</p>
+<p>These two civilizations — Vedic India and Sumer — were not strangers. They were trading partners, neighbors across the Arabian Sea, exchanging not just goods but ideas. When the Sumerians recorded their flood story, the Vedic tradition had Manu. When Sumer remembered seven sages, India had the Saptaṛṣi. The shared memories predate both civilizations. They point backward to something older.</p>
+
+<h3 id="part1-babel">The Tower of Babel ↔ Indra the Splitter</h3>
+<p>Genesis 11 records a mighty civilization, one language, one people, building a tower to reach heaven — to be greater than God. God confuses their language and scatters them across the earth. The Sumerian text <em>Enmerkar and the Lord of Aratta</em>, predating Genesis by over a thousand years, records the same event: humanity once spoke one language to Enlil, and then the languages were confused.</p>
+<p>In the Vedic tradition, Indra's function is precisely this: he is the splitter. He wields the Vajra. He breaks open Vala's cave to release stolen knowledge. He slays Vṛtra to release the waters. Indra shatters unity so that humanity must struggle to find it again. The Sumerians had Enlil. Genesis has Yahweh. The Vedic tradition has Indra. Three names for the same force that shattered the original unity.</p>
+
+<h3>Indra the Enforcer — The Cosmic Circuit Breaker</h3>
+<p>But Indra's role as the splitter is not a one-time event. It is his <em>ongoing function</em>. Throughout the Vedic literature and the epics, Indra actively intervenes whenever any being — mortal, ṛṣi, or asura — accumulates too much power through austerities (<span class="sanskrit-term">tapas</span>). When a sage's penance grows so fierce it threatens to destabilize the cosmic order, Indra sends <span class="sanskrit-term">apsarās</span> — celestial maidens — to seduce them and break their concentration. He disrupts <span class="sanskrit-term">yajñas</span> (sacrificial rites). He sabotages the accumulation of power before it can rival the gods.</p>
+<p>Viśvāmitra, one of the greatest ṛṣis, had his tapas broken multiple times by Indra sending the apsarā Menakā. Indra sent Rambhā to disrupt other sages. When Rāvaṇa accumulated ten heads' worth of tapas to earn invulnerability from Brahmā, the cosmos trembled. When Hiraṇyakaśipu performed austerities so severe that he earned near-invincibility, Viṣṇu himself had to incarnate as Narasiṃha to restore balance.</p>
+<p>This is the same cosmic pattern in every tradition: <strong>the divine order does not allow any single being to accumulate enough power to rival it.</strong> When someone tries — Jarāsandha collecting kings, Nimrod building upward, Sauron forging the Ring, Rāvaṇa demanding invulnerability — the cosmic immune system activates. God scatters Babel. Indra sends apsarās. The Valar send Gandalf. Same function, same force, different names.</p>
+<p>This makes the Gandalf parallel even sharper: Gandalf is literally sent by the Valar to counter Sauron's accumulation of power. He is not freelancing. He is performing Indra's function — the cosmic circuit breaker deployed when one force threatens to absorb too much.</p>
+
+<h3 id="part1-memories">Shared Memories Across Civilizations</h3>
+
+<p><strong>The Flood:</strong> The oldest known flood narrative comes from Sumer — the story of Ziusudra, a righteous king warned by the god Enki to build a boat before the gods send a deluge to destroy humanity. The Akkadian version gives us Utnapishtim in the <em>Epic of Gilgamesh</em> (c. 2100 BCE), who builds a vessel, loads it with animals, and survives the waters. Genesis gives us Noah, warned by Yahweh. The Vedic tradition gives us Manu, warned by a fish — <span class="sanskrit-term">Matsya avatāra</span>, the first incarnation of Viṣṇu — to build a boat. The <em>Śatapatha Brāhmaṇa</em> records: "There lived in ancient time a holy man called Manu, who, by penances and prayers, had won the favour of the lord of heaven."<span class="fn" onclick="toggleFn('satapatha')">4</span> Manu survives the flood with the <span class="sanskrit-term">Saptaṛṣi</span> — the seven sages — and seeds of life to re-establish civilization. The structural parallels are precise: a divine warning to one righteous man, a vessel, the destruction of a corrupted world, and the rebirth of civilization from the survivors.</p>
+<div class="footnote-panel" id="fn-satapatha"><div class="footnote-panel-inner"><span class="fn-source"><em>Śatapatha Brāhmaṇa</em>, I.8.1.</span> The Matsya Purāṇa and the <em>Mahābhārata</em> (Vana Parva) also contain extended accounts of the Manu flood narrative.</div></div>
+
+<p><strong>The Seven Sages:</strong> This parallel deserves far more attention than it typically receives. The Sumerians had the <span class="sanskrit-term">Apkallū</span> (Akkadian) or <span class="sanskrit-term">Abgal</span> (Sumerian) — seven demigod sages created by the god Enki in the cosmic deep (<span class="sanskrit-term">Apsû</span>), sent to establish culture and give civilization to humanity. They served as priests and advisors to the earliest kings of Sumer <em>before the flood</em>. They are credited with giving humanity the <em>Me</em> — the moral code, the crafts, and the arts. Their names are recorded: Uanna, "who finished the plans for heaven and earth"; Uannedugga, "who was endowed with comprehensive intelligence"; down to Utuabzu, "who ascended to heaven."</p>
+<p>The Vedic tradition has the <span class="sanskrit-term">Saptaṛṣi</span> — seven ṛṣis who are the patriarchs of the Vedic religion, the "mind-born sons of Brahmā" who descend from the celestial realms (<span class="sanskrit-term">Maharloka</span>) to lay the foundations of civilization on earth. They are identified with the seven stars of the Great Bear constellation (Ursa Major). The earliest Vedic list from the <em>Jaiminīya Brāhmaṇa</em> names them: Vasiṣṭha, Bharadvāja, Jamadagni, Gautama, Atri, Viśvāmitra, and Agastya. Both traditions assign the sages the same function: they are custodians of divine knowledge, civilizers of humanity, intermediaries between gods and men.</p>
+<p>The parallel extends further. The Sumerians taught that the Apkallū were present <em>before</em> the flood, and that after the deluge, human sages (<em>ummānu</em>) inherited their wisdom. In the Vedic tradition, the Saptaṛṣi survive the flood alongside Manu and carry the sacred knowledge forward into the new age. Both traditions describe a pre-flood golden age of divine wisdom, a catastrophic destruction, and a post-flood transmission of knowledge through chosen custodians. The "Uruk List of Kings and Sages" (165 BCE) pairs each sage with a specific antediluvian king — the same structure as Vedic genealogies pairing ṛṣis with royal lineages.</p>
+<p>The Hebrew Bible carries its own echo: Proverbs 9:1 declares "Wisdom has built her house; she has set up its seven pillars." Some scholars suggest this alludes to a tradition of seven sages laying civilization's foundations, transformed into a hymn to divine wisdom. Enoch, the seventh from Adam in Genesis, is described as the first to learn writing, astronomy, and wisdom — and his ascension to heaven mirrors the Sumerian sage Utuabzu, who was said to have ascended to heaven. Seven sages. Seven pillars. Seven stars. The number itself is a memory.</p>
+
+<div class="mapping">
+<div class="mapping-title">Enki / Agni — The Scholarly Bridge</div>
+<p>Jean-Yves Lung's comparative study, published through the Sri Aurobindo Ashram, demonstrates striking parallels between the Sumerian god Enki and the Vedic god Agni.<span class="fn" onclick="toggleFn('lung')">6</span> Both are intermediaries between gods and men. Both are connected to both fire and water. Both are called craftsmen, sages, and knowers. Agni in the Ṛg Veda is called "rājā apsu" — king in the waters — the same domain as Enki. Lung writes: "The Sumerians themselves considered that civilization was brought to them from the East" — by seven wise fish-men swimming up the rivers from the sea, presented as Enki's creatures. The double liberation of the Sun and the Waters occupies a central place in both Vedic and Sumerian mythology.</p>
+<div class="footnote-panel" id="fn-lung"><div class="footnote-panel-inner"><span class="fn-source">Jean-Yves Lung, "Similarities between Sumerian Enki and Vedic Agni," <em>Ritam</em>, Sri Aurobindo Ashram.</span> Published at wiki.auroville.org. Lung demonstrates that Agni in the Ṛg Veda is called "rājā apsu" (king in the waters, X.45.5) — the same cosmic domain as Enki.</div></div>
+</div>
+
+<p>These are not borrowings from one tradition to another. They are independent windows into something that existed before the split — a shared memory that multiple civilizations preserved in their own language and imagery. When three civilizations separated by thousands of miles all remember seven sages, a great flood, a righteous survivor, and the transmission of divine knowledge to rebuild the world — the question is not whether these traditions are connected, but how far back the connection goes.</p>
+
+<h3 id="part1-sanskrit">Sanskrit as Devabhāṣā — The Language of the Gods</h3>
+<p>Sanskrit is called <span class="sanskrit-term">Devabhāṣā</span> — the language of the gods. It was not considered a human invention. The Vedas are called <span class="sanskrit-term">śruti</span> ("that which was heard") because the ṛṣis did not compose them — they received them. Every sound is mapped to a cosmic principle, every vibration connected to creation itself.</p>
+<p>If there was an original language that connected humanity to the divine — a pre-Babel tongue — Sanskrit's claim to being closest to that source is stronger than almost anything else on earth. It is the oldest well-documented language in its family, and when scholars attempt to reconstruct the ancient root languages, Sanskrit is one of their primary reference points because it preserved forms that every other language lost.</p>
+
+<h3>Jarāsandha ↔ Nimrod ↔ Sauron — The Tyrant Who Would Surpass the Gods</h3>
+<p>This archetype — the tyrant who seeks to break the cosmic order — appears in all three traditions. Jarāsandha, the mighty king of Magadha, conquered and imprisoned eighty-six kings with the ambition to reach one hundred — to sacrifice them all as an offering to Lord Śiva and secure superhuman power. He was so powerful that even Krishna relocated the entire Yādava population from Mathurā to Dvārakā to escape his wrath.</p>
+<p>Nimrod in Genesis builds the Tower of Babel to reach God. Sauron forges the One Ring to dominate all free peoples. All three are the same archetype: <strong>the tyrant who seeks to break the cosmic order and make himself supreme. And all three must fall.</strong></p>
+
+<div class="mapping">
+<div class="mapping-title">The Covert Mission</div>
+<p>Krishna, Bhīma, and Arjuna infiltrate Jarāsandha's stronghold disguised as Brāhmaṇas — a small team sent to accomplish what vast armies could not. This is the Fellowship of the Ring: a covert operation against a power too great for open war.</p>
+</div>
+
+<div class="mapping">
+<div class="mapping-title">Krishna as Guide, Not Fighter</div>
+<p>Bhīma wrestles Jarāsandha for fourteen days. When torn in half, the halves magically rejoin. Krishna picks up a blade of grass, splits it, throws the pieces in opposite directions — a silent signal. Bhīma understands, tears Jarāsandha apart and throws the halves apart, killing him. Krishna does not fight. He guides. Gandalf energy. Charioteer energy.</p>
+</div>
+
+<div class="watercolor-placeholder">
+<div class="wp-label">Watercolor Placeholder</div>
+<div class="wp-desc">Suggested: The tower rising / the Vajra splitting / light scattering into languages</div>
+</div>
+</section>
+
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">॥</span><span class="divider-line"></span></div>
+
+<!-- SECTION II -->
+<section class="fade-section">
+<span class="section-number">Part II</span>
+<h2 id="part2">The Linguistic Bridge — Sanskrit Roots in Tolkien</h2>
+
+<p>Tolkien was a comparative philologist at Oxford who stated: "I am a philologist and all my work is philological." He took Comparative Philology as a special subject for Honour Moderations. As any serious philologist working with etymologies, knowledge of Sanskrit was essential — it is the oldest well-documented language in the family that includes Old English, Norse, Gothic, and every European tongue Tolkien drew from.</p>
+<p>Mark T. Hooker's study <em>Tolkien and Sanskrit</em> demonstrates that Tolkien calqued the names of the <span class="sanskrit-term">Sapta Sindhavah</span> (Seven Rivers) from the Ṛg Veda as the Seven Rivers of Ossiriand in <em>The Silmarillion</em> — creating Elvish river names that carry the same meaning as their Vedic originals.<span class="fn" onclick="toggleFn('hooker')">1</span> Tolkien himself enjoined his students to compare the Mahābhārata with Chaucer's <em>The Pardoner's Tale</em><span class="fn" onclick="toggleFn('tolkien-mb')">2</span> — evidence that he saw the Indian epic as part of the same literary continuum.</p>
+<div class="footnote-panel" id="fn-hooker"><div class="footnote-panel-inner"><span class="fn-source">Mark T. Hooker, <em>Tolkien and Sanskrit (second, expanded edition): The Silmarillion in the Cradle of Proto-Indo-European</em> (2016).</span> Hooker argues that Sanskrit knowledge was "de rigueur for any serious philologist interested in etymologies like Tolkien."</div></div>
+<div class="footnote-panel" id="fn-tolkien-mb"><div class="footnote-panel-inner"><span class="fn-source">Reported in Hooker (2016), referencing Tolkien's lectures at Oxford.</span> Tolkien took Comparative Philology as a special subject for Honour Moderations at Oxford.</div></div>
+
+<h3>Saruman / Sūrya</h3>
+<p>The PIE root <em>*sóh₂wl̥</em> (sun) branches into both Sanskrit <span class="sanskrit-term">sūrya</span> and the Germanic linguistic tradition Tolkien drew from. Saruman's name derives from Old English <em>searu</em> (craft, cunning), but the solar resonance connects at a deeper etymological level — wisdom and radiance are linked across both traditions.</p>
+
+<h3>Brego / Bhṛgu</h3>
+<p>Bhṛgu is the Vedic ṛṣi associated with fire — the "shining ones." Tolkien's Brego comes from Old English <em>brego</em> (lord, chief). The PIE root <em>*bʰreg-</em> (to shine, burn) connects them.</p>
+
+<h3>The Danube / Dānu Connection</h3>
+<p>The river Danube derives from PIE <em>*deh₂nu-</em> (river), which also gives us the Vedic river name <strong>Dānu</strong> — the mother of Vṛtra, the serpent Indra slays. The same root appears across European rivers: Don, Dnieper, Dniester. A profound linguistic and mythological bridge between traditions.</p>
+
+<div class="watercolor-placeholder">
+<div class="wp-label">Watercolor Placeholder</div>
+<div class="wp-desc">Suggested: Rivers branching from a single source / tree of languages</div>
+</div>
+</section>
+
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">ॐ</span><span class="divider-line"></span></div>
+
+<!-- SECTION III -->
+<section class="fade-section">
+<span class="section-number">Part III</span>
+<h2 id="part3">Character Archetypes — The Warriors of Kurukṣetra in Middle-earth</h2>
+
+<h3 id="part3-arjuna">Arjuna ↔ Aragorn (Strider)</h3>
+<p>Even the names share the <strong>AR-</strong> root. The parallels run deep:</p>
+<p><strong>The reluctant king-warrior.</strong> Arjuna drops his bow in the chariot and says "I cannot do this." Aragorn spends decades as Strider, refusing his lineage, reluctant to claim the throne of Gondor. Both carry the dharma of the Kṣatriya but resist it. Both need divine counsel to step into who they are.</p>
+<p><strong>The exile in the wilderness.</strong> Arjuna's years of <span class="sanskrit-term">vanavāsa</span> — wandering in disguise, mastering weapons, living anonymously — mirror Aragorn's decades as a ranger. Both return from exile to claim their role in the great war.</p>
+<p><strong>The divine weapons.</strong> Arjuna receives the Pāśupatāstra from Śiva and the Gāṇḍīva bow. Aragorn receives Andúril, the reforged sword. Both weapons symbolize the warrior's readiness to fulfill his purpose.</p>
+<p><strong>The first ranger.</strong> Arjuna moving through the forests, operating in the margins, protecting dharma from the shadows before the war begins. That IS the ranger archetype.</p>
+
+<h3 id="part3-gandalf">Gandalf ↔ Krishna</h3>
+<p>Krishna is the charioteer — he doesn't fight directly but <em>guides</em> the warrior. Gandalf operates the same way: he doesn't wield ultimate power to defeat Sauron himself. He counsels, inspires, and holds the line so others can fulfill their dharma.</p>
+<p>The Bhagavad Gītā happens right before the battle. Gandalf's great speeches serve the same function. "All we have to decide is what to do with the time that is given us" is practically a Gītā verse.</p>
+<p>Gandalf the Grey dies and returns as Gandalf the White — the ascent from lower to higher consciousness that Sri Aurobindo describes. He is not a warrior; he is a conduit for divine light breaking through.</p>
+
+<h3>Gimli ↔ Bhīma</h3>
+<p>The stout, powerful warrior who fights with raw strength and fury. Gimli with his axe, Bhīma with his <span class="sanskrit-term">gadā</span>. Neither is elegant. They just HIT.</p>
+<p>Loud, boastful, competitive. Gimli counting kills at Helm's Deep — "That still only counts as one!" — is pure Bhīma energy. Trash talk earned because he backs it up every time.</p>
+<p>Both are underestimated. Bhīma is dismissed as just the brute. Gimli is "just the Dwarf." But both have depth underneath — Bhīma's devotion to his family, Gimli's speechless wonder at the Glittering Caves, his reverence for Galadriel. The warrior with the tender heart. Even the appetite — Bhīma is famous for his eating.</p>
+
+<h3>Legolas ↔ Nakula</h3>
+<p>Nakula is the most handsome man on the battlefield. Legolas carries that same celestial beauty — not vanity but an expression of his nature as a higher being. Nakula is the son of the Aśvins. Legolas is an Elf — Gandharva-type, celestial grace.</p>
+<p>Nakula fights with precision and elegance. Legolas with the bow is the same. Every arrow exact, no wasted movement. Where Bhīma/Gimli is chaos and power, Nakula/Legolas is geometry and flow.</p>
+
+<div class="mapping">
+<div class="mapping-title">The Bhīma-Nakula / Gimli-Legolas Brotherhood</div>
+<p>The unlikely bond between raw power and celestial grace — opposites who are incomplete without each other. Dwarf and Elf, mace-wielder and swordsman, mirrors the inseparable Pāṇḍava brothers forged through war.</p>
+</div>
+
+<h3>Wormtongue ↔ Shakuni</h3>
+<p>The whispering advisor who corrupts the king through manipulation. Théoden under Wormtongue mirrors Dhṛtarāṣṭra under Shakuni almost exactly. Both kings poisoned by a cunning figure from within the court. In both cases, the liberation of the king is a turning point in the war.</p>
+
+<h3>Boromir ↔ Karna</h3>
+<p>The noble warrior bound by loyalty to the wrong side, tragic because his virtues lead to his downfall. The man who <em>should</em> have been among the righteous but was claimed by circumstance and pride. His death carries redemption through sacrifice.</p>
+
+<h3 id="part3-gollum">Gollum ↔ Aśvatthāmā</h3>
+<p>Aśvatthāmā is cursed to wander the earth forever — immortal but decaying, covered in sores and wounds that never heal. Gollum is the same. The Ring extends his life unnaturally — he lives for centuries but does not <em>live</em>.</p>
+<p>Both were corrupted by a single act of attachment — Aśvatthāmā by his rage and the Brahmāstra he would not release, Sméagol by the Ring he murdered for.</p>
+
+<div class="mapping">
+<div class="mapping-title">The Ātman vs. Ahaṃkāra War</div>
+<p>Sméagol is the ātman trying to surface, the original self that remembers goodness. Gollum is the ahaṃkāra, the false ego built around "my precious." The war between witnessing consciousness and ego plays out visibly in his conversations with himself.</p>
+</div>
+
+<div class="mapping">
+<div class="mapping-title">Dharma Through Adharma</div>
+<p>Gollum destroys the Ring — not Frodo. The most fallen being accidentally fulfills the cosmic purpose. Pure Mahābhārata logic: dharma works through the most unexpected instruments. Even adharma serves dharma in the end.</p>
+</div>
+
+<h3>Hobbits ↔ The Unlikely Dharmic Agents</h3>
+<p>Cosmic dharma doesn't flow through the mightiest warrior but through the most humble, overlooked being. That's Vidura energy. That's Krishna choosing the smallest force over the largest army. The most Mahābhārata move in the entire story.</p>
+
+<div class="watercolor-placeholder">
+<div class="wp-label">Watercolor Placeholder</div>
+<div class="wp-desc">Suggested: Arjuna's chariot beside Aragorn on horseback / warriors in parallel</div>
+</div>
+</section>
+
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">॥</span><span class="divider-line"></span></div>
+
+<!-- SECTION IV -->
+<section class="fade-section">
+<span class="section-number">Part IV</span>
+<h2 id="part4">Cosmological Mapping — The Worlds Within the World</h2>
+
+<h3>Elves ↔ Gandharvas</h3>
+<p>Celestial beings — beautiful, musical, ancient, connected to higher realms. The Elves leaving Middle-earth mirrors the Gandharvas dwelling in celestial realms. Rivendell and Lothlórien have that <span class="sanskrit-term">Gandharva-loka</span> energy — enchanted places where time moves differently.</p>
+
+<h3>Orcs ↔ Rākṣasas</h3>
+<p>Corrupted beings, once something else but twisted by dark power. In the Silmarillion, Orcs were Elves tortured by Morgoth. Rākṣasas are powerful beings who turned toward adharma. The Uruk-hai have that Rākṣasa quality — specifically bred for war and destruction.</p>
+
+<h3>Ents ↔ Yakṣas</h3>
+<p>In the Vana Parva, a Yakṣa guards a sacred lake and kills Yudhiṣṭhira's brothers one by one when they refuse to answer his questions before drinking — he enforces nature's law and will destroy even great warriors who disrespect that boundary.</p>
+<p>That is exactly Treebeard and the Ents. Ancient, terrifying guardians patient for ages, but when Saruman cuts down Fangorn, they march on Isengard and tear it apart. The Yakṣa waking up. Saruman's industrialization is a violation of <span class="sanskrit-term">ṛta</span> (cosmic order), and the Ents rising is nature's dharma reasserting itself.</p>
+
+<h3>The Ainulindalë ↔ Nāda Brahman</h3>
+<p>The creation music in the Silmarillion — the world sung into existence — resonates with <span class="sanskrit-term">Nāda Brahman</span>, creation emerging from primordial sound. The Gospel of John opens with "In the beginning was the Word" — the same teaching in yet another tradition.</p>
+
+<h3>The One Ring ↔ Māyā / Kāma</h3>
+<p>The Ring functions as <span class="sanskrit-term">māyā</span> — the binding illusion that entraps consciousness in attachment and power. Everyone who touches it becomes attached. This is the Gītā's teaching on attachment as the root of destruction. Frodo's journey to Mount Doom mirrors the renunciant's path — stripping away ego-attachment.</p>
+
+<h3>Mūmakil ↔ Vedic War Elephants</h3>
+<p>There are no elephants in Europe since the Ice Age. Yet Tolkien places massive war elephants at the Pelennor Fields. Scholars Solopova and Lee argue the mūmakil place the Haradrim far to the East — only India continued using war elephants after classical times.<span class="fn" onclick="toggleFn('solopova')">5</span></p>
+<p>In the Mahābhārata, the <span class="sanskrit-term">akṣauhiṇī</span> formation: 1 chariot : 1 elephant : 3 cavalry : 5 infantry. Ancient Indian kings stated that <em>an army without elephants is as despicable as a forest without a lion</em>. Alexander's encounter with Indian war elephants at the Hydaspes in 326 BCE is how this image entered Western consciousness. Tolkien's Mūmakil are literally an Indian import.</p>
+<div class="footnote-panel" id="fn-solopova"><div class="footnote-panel-inner"><span class="fn-source">Elizabeth Solopova & Stuart D. Lee, <em>The Keys of Middle-earth: Discovering Medieval Literature Through the Fiction of J.R.R. Tolkien</em> (Palgrave Macmillan, 2005).</span></div></div>
+
+<div class="watercolor-placeholder">
+<div class="wp-label">Watercolor Placeholder</div>
+<div class="wp-desc">Suggested: Mūmakil at Pelennor / elephants in Kurukṣetra formations</div>
+</div>
+</section>
+
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">ॐ</span><span class="divider-line"></span></div>
+
+<!-- SECTION V -->
+<section class="fade-section">
+<span class="section-number">Part V</span>
+<h2 id="part5">Divine Signs & Battlefield Omens</h2>
+
+<h3>Thunder Before Helm's Deep ↔ Indra Watching His Son</h3>
+<p>Before Helm's Deep, thunder rolls across the sky. The storm arrives before the Uruk-hai assault — the cosmos responds to what is about to happen.</p>
+<p>In the Mahābhārata, when Arjuna enters battle, <strong>Indra sends thunder and celestial signs</strong>. Indra is king of the Devas, lord of storms, and Arjuna's father. Arjuna is <span class="sanskrit-term">Aindri</span>, son of Indra. Every time thunder rolls before Arjuna fights, it is his father watching from above.</p>
+<p>Aragorn/Arjuna standing on that wall looking out at ten thousand Uruk-hai — Indra pouring rain down like a father watching his son. Indra's weapon is the Vajra — the thunderbolt that shatters chaos.</p>
+
+<blockquote>
+<p>If Sakka, lord of the devas, will be one who speaks in praise of initiative and energy, then how much more fitting for you to toil, struggle, and strive.</p>
+<cite>— The Buddha, Sakka Saṃyutta</cite>
+</blockquote>
+
+<p>In the Pāli Canon, Indra appears as Sakka, king of the Tāvatiṃsa heaven. Even Indra — wielder of the Vajra — has to struggle. If the king of the gods is not exempt, then struggle is not punishment. It is the nature of existence.</p>
+</section>
+
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">॥</span><span class="divider-line"></span></div>
+
+<!-- SECTION VI -->
+<section class="fade-section">
+<span class="section-number">Part VI</span>
+<h2 id="part6">Light vs. Darkness — Vedic Psychology & the War Within</h2>
+
+<p>Sri Aurobindo read the Vedas not as ritual texts but as psychological maps. The battle between light (<span class="sanskrit-term">jyoti</span>) and darkness (<span class="sanskrit-term">tamas</span>) happens within consciousness itself. The Devas are forces of awakening. The Asuras are forces of concealment. Every external war is the inner war.</p>
+<p>This reframes the War of the Ring as an Aurobindian drama. <strong>Sauron</strong> is the concealing force. The <strong>Ring</strong> is the mechanism of ignorance. <strong>Gandalf</strong> is the supramental light breaking through to guide beings toward their higher nature.</p>
+<p><strong>Key Source:</strong> Dr. Anuradha Choudry, Sanskrit scholar at IIT Kharagpur, PhD in Vedic Psychology from Pondicherry University, trained at the Sri Aurobindo International Centre of Education. Her work carries Aurobindo's lineage forward, showing the practical application of Vedic psychology in daily life.</p>
+
+<h3>The Guṇas in Middle-earth</h3>
+<p>After listening to the Bhagavad Gītā twenty-plus times, the three <span class="sanskrit-term">guṇas</span> become a lens through which all of reality is perceived. Not intellectual knowledge — <span class="sanskrit-term">darśana</span>, direct perception.</p>
+<p><span class="gold-term">Sattva</span> — clarity, harmony, light. The moment of insight in zazen. Gandalf's wisdom. The Shire at peace.</p>
+<p><span class="gold-term">Rajas</span> — agitation, passion, movement. Boromir's ambition. Saruman's cunning.</p>
+<p><span class="gold-term">Tamas</span> — inertia, darkness, concealment. The Ring's hold. Théoden under Wormtongue. Sauron's shadow.</p>
+<p>The Mahābhārata was never meant to be "scripture" on a shelf. Vyāsa composed it as <span class="sanskrit-term">itihāsa</span>: "Thus it was." It is a mirror for life. See your boss in Duryodhana, your own hesitation in Arjuna, your friendships in Krishna's bond. The twenty-first listen shows what the first twenty didn't.</p>
+</section>
+
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">ॐ</span><span class="divider-line"></span></div>
+
+<!-- SECTION VII -->
+<section class="fade-section">
+<span class="section-number">Part VII</span>
+<h2 id="part7">Structural Parallels — The Shape of the Epic</h2>
+
+<h3>The Declining Ages ↔ The Yuga Cycle</h3>
+<p>Tolkien's declining Ages of Middle-earth mirror the Yuga cycle — progressive dimming from a golden age toward darkness. The Kali Yuga feeling at the end of Return of the King, when the Elves leave and magic fades, captures this transition between yugas.</p>
+
+<h3>Kurukṣetra ↔ The War of the Ring</h3>
+<p>Both wars share the same gravity: dharma at stake, reluctant warriors, cosmic forces through human choices, an age ending. Both fought not for territory but for the moral order of the world itself.</p>
+
+<h3>Epic Wholeness</h3>
+<p>Tolkien wanted a mythology for England. Norse mythology survives as fragments. Greek as scattered stories. But Tolkien built something with the same epic wholeness as the Mahābhārata — cosmogony, ages of the world, the great war, the passing of an age, the bittersweet victory where dharma is restored but the world is diminished.</p>
+
+<h3>Isaiah's Plowshares ↔ Balarāma the Plough-Bearer</h3>
+<p>Isaiah 2:4 — "They shall beat their swords into plowshares." Balarāma — Krishna's elder brother, wielder of the plough — is the warrior who carries agricultural tools instead of weapons. A Kṣatriya fully capable of fighting who chooses not to fight at Kurukṣetra. He goes on pilgrimage instead. Power held in restraint. Christ himself — the carpenter who could call down legions but chooses the cross — embodies the same archetype.</p>
+</section>
+
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">॥</span><span class="divider-line"></span></div>
+
+<!-- SECTION VIII -->
+<section class="fade-section">
+<span class="section-number">Part VIII</span>
+<h2 id="part8">The Warrior's Pantheon — A Living Practice</h2>
+
+<p>These archetypes are not abstract mythology. They function as operational energy — a personal pantheon carried into daily life:</p>
+
+<div class="mapping">
+<div class="mapping-title">Nakula & Sahadeva — Presentation & Grace</div>
+<p>The Aśvinī Kumāras, the divine twins — the most beautiful beings on the battlefield. Channeling their energy: looking good as self-respect and discipline. Dhārmic swagger.</p>
+</div>
+
+<div class="mapping">
+<div class="mapping-title">Bhīma — Boundaries & Raw Power</div>
+<p>The one who doesn't strategize, just handles it. He tore Duḥśāsana apart for what he did to Draupadī. Pure righteous fury. The boundary enforcer. You don't need him often, but when you do there is no substitute.</p>
+</div>
+
+<div class="mapping">
+<div class="mapping-title">Arjuna & Krishna — Skill & Divine Guidance</div>
+<p>The warrior and his charioteer. Skill plus wisdom. Focused, guided combat — whether on a battlefield or facing an OSCP challenge. Keśava rides with you.</p>
+</div>
+
+<div class="mapping">
+<div class="mapping-title">Jesus & Mitra — Covenant & Piety</div>
+<p>Mitra is the Vedic god of covenants, friendship, and divine order. The Romans worshipped Mithras. Early Christianity absorbed Mithraic symbolism — December 25th, the birth in a cave, the shared sacred meal. Christ on the cross and Arjuna in the chariot face the same moment: surrender to something larger than the ego's plan.</p>
+</div>
+
+<div class="mapping">
+<div class="mapping-title">Śiva & Buddha — The Meditation Seat</div>
+<p>The stillness behind all of it. Śiva in dhyāna and the Buddha in zazen are the foundation. Dhyāna in Sanskrit becomes Chán in Chinese becomes Zen in Japanese. The practice didn't change, just the mouth saying it. Śiva destroys the external world; Buddha dissolves the internal. Same seat, different direction.</p>
+</div>
+
+<div class="mapping">
+<div class="mapping-title">The Three Yogas</div>
+<p><strong>Karma Yoga</strong> (Bhīma, Arjuna — righteous action). <strong>Bhakti Yoga</strong> (Jesus, Mitra, Krishna — devotion and covenant). <strong>Jñāna Yoga</strong> (Śiva, Buddha — knowledge through stillness). A complete system.</p>
+</div>
+</section>
+
+<!-- CLOSING -->
+<div class="closing">
+<div class="closing-om">ॐ शान्तिः</div>
+<div class="closing-mantra">ॐ नमो भगवते वासुदेवाय</div>
+<p class="closing-line">The source is Sanskrit. The river flows from the Veda.</p>
+</div>
+
+<div class="footer">
+<p>Śruti · Braxton · 2026</p>
+</div>
+
+</main>
+
+<script>
+// Intersection Observer for fade-in sections
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.fade-section').forEach(s => observer.observe(s));
+
+// Top nav show/hide on scroll
+let lastScroll = 0;
+const topNav = document.getElementById('topNav');
+const progressBar = document.getElementById('progressBar');
+
+window.addEventListener('scroll', () => {
+  const st = window.pageYOffset;
+  // Show nav after scrolling past hero
+  if (st > window.innerHeight * 0.8) {
+    topNav.classList.add('visible');
+  } else {
+    topNav.classList.remove('visible');
+  }
+  lastScroll = st;
+
+  // Progress bar
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (st / docHeight) * 100;
+  progressBar.style.width = progress + '%';
+
+  // Active TOC tracking
+  updateActiveToc();
+});
+
+// TOC toggle
+function toggleToc() {
+  document.getElementById('tocPanel').classList.toggle('open');
+  document.getElementById('tocOverlay').classList.toggle('open');
+}
+
+// TOC navigation
+function tocNav(e) {
+  e.preventDefault();
+  const href = e.target.getAttribute('href');
+  const target = document.querySelector(href);
+  if (target) {
+    const offset = 60;
+    const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+  toggleToc();
+}
+
+// Track active section in TOC
+function updateActiveToc() {
+  const sections = document.querySelectorAll('[id^="part"]');
+  const links = document.querySelectorAll('.toc-list a');
+  let current = '';
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    if (top < 150) current = section.id;
+  });
+  links.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+}
+
+// Footnote toggle
+function toggleFn(id) {
+  const panel = document.getElementById('fn-' + id);
+  if (panel) {
+    panel.classList.toggle('open');
+    if (panel.classList.contains('open')) {
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+}
+</script>
+
+</body>
+</html>
