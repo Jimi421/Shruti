@@ -53,8 +53,6 @@ body::before {
   min-height: 100vh;
   min-height: 100svh;
   min-height: 100dvh;
-  height: 100svh;
-  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -124,14 +122,12 @@ body::before {
   opacity: 0; animation: fadeUp 1.2s ease 1.7s forwards;
 }
 .hero-scroll {
-  position: absolute;
-  bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: 2rem;
   opacity: 0;
-  animation: fadeIn 1.5s ease 2.2s forwards, float 3s ease-in-out infinite 2.5s;
+  animation: fadeIn 1.5s ease 2.2s forwards, floatSimple 3s ease-in-out infinite 2.5s;
 }
 .hero-scroll svg { width: 24px; height: 24px; stroke: var(--gold); stroke-width: 1.5; fill: none; }
+@keyframes floatSimple { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
 /* ARTICLE */
 .article {
   position: relative; z-index: 1;
@@ -218,7 +214,7 @@ blockquote cite {
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes float { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
 .fade-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
 .fade-section.visible { opacity: 1; transform: translateY(0); }
 /* TOP NAV */
