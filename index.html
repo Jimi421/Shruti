@@ -5,14 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Śruti — That Which Was Heard</title>
 <meta name="description" content="Mapping Vedic archetypes in Tolkien's Lord of the Rings. Cross-tradition scholarship from the Mahābhārata to Middle-earth.">
-
-<meta property="og:title" content="Śruti — That Which Was Heard">
-<meta property="og:description" content="Mapping Vedic archetypes in Tolkien's Lord of the Rings. Cross-tradition scholarship from the Mahābhārata to Middle-earth.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="/images/hero.png">
-<meta name="theme-color" content="#EDE6D6">
-<link rel="preload" as="image" href="/images/hero.png">
-<link rel="preload" as="image" href="/images/gold_hero.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
@@ -32,6 +24,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
+    overscroll-behavior-y: none;
   background: var(--parchment);
   color: var(--ink);
   font-family: 'EB Garamond', Georgia, serif;
@@ -52,11 +45,7 @@ body::before {
 /* HERO */
 .hero {
   position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
-  min-height: 100dvh;
-  height: 100svh;
-  height: 100dvh;
+  min-height: 100svh; /* stable mobile viewport */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,7 +54,8 @@ body::before {
   padding: 4rem 2rem;
   padding-top: calc(4rem + env(safe-area-inset-top));
   padding-bottom: calc(4rem + env(safe-area-inset-bottom));
-  background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-deep) 50%, var(--parchment) 100%);
+  background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
+  overflow: hidden;
 }
 .hero-devanagari {
   font-family: 'Noto Sans Devanagari', sans-serif;
@@ -334,180 +324,16 @@ blockquote cite {
 }
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  body { font-size: 17px; }
+  body {
+    overscroll-behavior-y: none; font-size: 17px; }
   .article { padding: 1.5rem 1.25rem 4rem; }
   .mapping { padding: 1rem 1.25rem; }
   blockquote { padding: 1.25rem 1rem; }
   blockquote p { font-size: 1.2rem; }
-  .hero { padding: 3rem 1.5rem;
-    padding-top: calc(3rem + env(safe-area-inset-top));
-    padding-bottom: calc(3rem + env(safe-area-inset-bottom)); }
+  .hero { min-height: 90vh; padding: 3rem 1.5rem; }
   .toc-panel { width: 260px; right: -280px; }
   .top-nav { padding: 0.5rem 1rem; }
 }
-
-/* --- ŚRUTI VISUAL SYSTEM (Series + Figures) --- */
-.hero::before{
-  content:"";
-  position:absolute; inset:0;
-  background-image:url("/images/hero.png");
-  background-size:cover;
-  background-position:center;
-  filter:saturate(0.95) contrast(1.02);
-  opacity:0.22;
-  mix-blend-mode:multiply;
-  z-index:0;
-}
-.hero::after{
-  content:"";
-  position:absolute; inset:0;
-  background:
-    radial-gradient(1200px 600px at 50% 45%, rgba(212,168,66,0.14), transparent 55%),
-    linear-gradient(180deg, rgba(245,240,232,0.92) 0%, rgba(237,230,214,0.86) 45%, rgba(245,240,232,0.92) 100%);
-  z-index:1;
-}
-.hero > * { position: relative; z-index: 2; }
-.hero-seal{
-  width: 140px;
-  height: auto;
-  opacity: 0;
-  filter: drop-shadow(0 10px 25px rgba(184,134,11,0.18));
-  margin-bottom: 1.2rem;
-  animation: fadeDown 1.2s ease 0.15s forwards;
-}
-.series-grid{
-  width:min(980px, 100%);
-  display:grid;
-  grid-template-columns: repeat(4, minmax(0,1fr));
-  gap: 14px;
-  margin-top: 2.2rem;
-  opacity: 0;
-  animation: fadeUp 1.2s ease 1.05s forwards;
-}
-@media (max-width: 980px){
-  .series-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-}
-@media (max-width: 520px){
-  .series-grid{ grid-template-columns: 1fr; }
-}
-.series-card{
-  display:block;
-  text-decoration:none;
-  border: 1px solid rgba(184,134,11,0.22);
-  background:
-    linear-gradient(180deg, rgba(212,168,66,0.10), transparent 55%),
-    rgba(245,240,232,0.92);
-  border-radius: 18px;
-  padding: 12px 12px 14px;
-  box-shadow: 0 18px 45px rgba(44,24,16,0.06);
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-.series-card:hover{
-  transform: translateY(-3px);
-  border-color: rgba(184,134,11,0.38);
-  box-shadow: 0 26px 70px rgba(44,24,16,0.10);
-}
-.series-thumb{
-  width:100%;
-  aspect-ratio: 16/9;
-  border-radius: 14px;
-  border: 1px solid rgba(44,24,16,0.12);
-  overflow:hidden;
-  background: rgba(237,230,214,0.65);
-  margin-bottom: 10px;
-}
-.series-thumb img{
-  width:100%; height:100%;
-  object-fit: cover;
-  display:block;
-  filter:saturate(0.98) contrast(1.03);
-}
-.series-meta{
-  display:flex;
-  align-items:baseline;
-  justify-content:space-between;
-  gap: 10px;
-}
-.series-meta b{
-  font-family:'Cormorant Garamond', Georgia, serif;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--ink);
-}
-.series-meta span{
-  font-size: 0.88rem;
-  color: var(--ink-faded);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.sruti-figure{
-  margin: 1.8rem 0 2.2rem;
-  border-radius: 22px;
-  overflow:hidden;
-  border: 1px solid rgba(44,24,16,0.14);
-  background: rgba(237,230,214,0.65);
-  box-shadow: 0 22px 60px rgba(44,24,16,0.08);
-}
-.sruti-figure a{ display:block; }
-.sruti-figure img{
-  width:100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  display:block;
-}
-.figcap{
-  padding: 12px 16px 14px;
-  font-size: 0.98rem;
-  color: var(--ink-faded);
-  letter-spacing: 0.02em;
-  background:
-    linear-gradient(180deg, rgba(212,168,66,0.10), transparent 70%),
-    rgba(245,240,232,0.94);
-}
-.figcap b{ color: var(--ink); font-weight: 600; }
-.lightbox{
-  position:fixed; inset:0;
-  background: rgba(16,10,7,0.78);
-  backdrop-filter: blur(6px);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding: 22px;
-  z-index: 9999;
-}
-.lightbox[aria-hidden="false"]{ display:flex; }
-.lightbox-inner{
-  width: min(1200px, 100%);
-  border-radius: 22px;
-  overflow:hidden;
-  border: 1px solid rgba(212,168,66,0.25);
-  box-shadow: 0 30px 120px rgba(0,0,0,0.45);
-  background: rgba(245,240,232,0.94);
-}
-.lightbox-img{
-  width:100%;
-  height:auto;
-  display:block;
-}
-.lightbox-bar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap: 14px;
-  padding: 10px 14px;
-  color: var(--ink);
-  font-size: 0.95rem;
-}
-.lightbox-btn{
-  border: 1px solid rgba(44,24,16,0.22);
-  background: rgba(245,240,232,0.9);
-  border-radius: 12px;
-  padding: 8px 10px;
-  cursor:pointer;
-  font-family: inherit;
-}
-.lightbox-btn:hover{ border-color: rgba(184,134,11,0.45); }
-
 </style>
 </head>
 <body>
@@ -559,26 +385,6 @@ blockquote cite {
   <p class="hero-essay-sub">Mapping Vedic Archetypes in Tolkien's Lord of the Rings</p>
   <p class="hero-author">Braxton · February 2026</p>
   <div class="hero-scroll"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
-
-  <nav class="series-grid" aria-label="Śruti series navigation">
-    <a class="series-card" href="#part1">
-      <div class="series-thumb"><img src="/images/tower.png" alt="Part I — Tower/Vajra" loading="lazy" decoding="async"></div>
-      <div class="series-meta"><b>Part I</b><span>Tower / Vajra</span></div>
-    </a>
-    <a class="series-card" href="#part2">
-      <div class="series-thumb"><img src="/images/rivers.png" alt="Part II — Source River" loading="lazy" decoding="async"></div>
-      <div class="series-meta"><b>Part II</b><span>Source River</span></div>
-    </a>
-    <a class="series-card" href="#part3">
-      <div class="series-thumb"><img src="/images/rangers.png" alt="Part III — Parallel silhouettes" loading="lazy" decoding="async"></div>
-      <div class="series-meta"><b>Part III</b><span>Arjuna ↔ Strider</span></div>
-    </a>
-    <a class="series-card" href="#part4">
-      <div class="series-thumb"><img src="/images/war.png" alt="Part IV — Formations" loading="lazy" decoding="async"></div>
-      <div class="series-meta"><b>Part IV</b><span>Mūmakil / Kurukṣetra</span></div>
-    </a>
-  </nav>
-
 </header>
 
 <main class="article">
@@ -587,13 +393,6 @@ blockquote cite {
 <section class="fade-section">
 <span class="section-number">Part I</span>
 <h2 id="part1">Before the Split — Babel, Sumer & the Original Tongue</h2>
-
-<figure class="sruti-figure">
-  <a href="/images/tower.png" class="lb" data-caption="A Sumerian horizon and the first split: language, lightning, and the tower as a cosmic antenna.">
-    <img src="/images/tower.png" alt="Part I — Tower / Vajra / Babel ↔ Indra" loading="lazy" decoding="async">
-  </a>
-  <figcaption class="figcap"><b>Part I — Tower / Vajra / Babel ↔ Indra</b> — A Sumerian horizon and the first split: language, lightning, and the tower as a cosmic antenna.</figcaption>
-</figure>
 
 <p>The mapping between the Mahābhārata and Lord of the Rings is not coincidence. It points to something older and deeper — a shared memory preserved across civilizations that predates any single tradition. To understand why Tolkien's mythology echoes the Vedas so precisely, we must begin before the split.</p>
 
@@ -667,13 +466,6 @@ blockquote cite {
 <span class="section-number">Part II</span>
 <h2 id="part2">The Linguistic Bridge — Sanskrit Roots in Tolkien</h2>
 
-<figure class="sruti-figure">
-  <a href="/images/rivers.png" class="lb" data-caption="A luminous origin branching into seven — root-letters shimmering beneath the waterline.">
-    <img src="/images/rivers.png" alt="Part II — One Source, Seven Rivers" loading="lazy" decoding="async">
-  </a>
-  <figcaption class="figcap"><b>Part II — One Source, Seven Rivers</b> — A luminous origin branching into seven — root-letters shimmering beneath the waterline.</figcaption>
-</figure>
-
 <p>Tolkien was a comparative philologist at Oxford who stated: "I am a philologist and all my work is philological." He took Comparative Philology as a special subject for Honour Moderations. As any serious philologist working with etymologies, knowledge of Sanskrit was essential — it is the oldest well-documented language in the family that includes Old English, Norse, Gothic, and every European tongue Tolkien drew from.</p>
 <p>Mark T. Hooker's study <em>Tolkien and Sanskrit</em> demonstrates that Tolkien calqued the names of the <span class="sanskrit-term">Sapta Sindhavah</span> (Seven Rivers) from the Ṛg Veda as the Seven Rivers of Ossiriand in <em>The Silmarillion</em> — creating Elvish river names that carry the same meaning as their Vedic originals.<span class="fn" onclick="toggleFn('hooker')">1</span> Tolkien himself enjoined his students to compare the Mahābhārata with Chaucer's <em>The Pardoner's Tale</em><span class="fn" onclick="toggleFn('tolkien-mb')">2</span> — evidence that he saw the Indian epic as part of the same literary continuum.</p>
 <div class="footnote-panel" id="fn-hooker"><div class="footnote-panel-inner"><span class="fn-source">Mark T. Hooker, <em>Tolkien and Sanskrit (second, expanded edition): The Silmarillion in the Cradle of Proto-Indo-European</em> (2016).</span> Hooker argues that Sanskrit knowledge was "de rigueur for any serious philologist interested in etymologies like Tolkien."</div></div>
@@ -700,13 +492,6 @@ blockquote cite {
 <section class="fade-section">
 <span class="section-number">Part III</span>
 <h2 id="part3">Character Archetypes — The Warriors of Kurukṣetra in Middle-earth</h2>
-
-<figure class="sruti-figure">
-  <a href="/images/rangers.png" class="lb" data-caption="Arjuna and Strider set on one horizon line, linked by a single golden thread.">
-    <img src="/images/rangers.png" alt="Part III — Parallel Silhouettes" loading="lazy" decoding="async">
-  </a>
-  <figcaption class="figcap"><b>Part III — Parallel Silhouettes</b> — Arjuna and Strider set on one horizon line, linked by a single golden thread.</figcaption>
-</figure>
 
 <h3 id="part3-arjuna">Arjuna ↔ Aragorn (Strider)</h3>
 <p>Even the names share the <strong>AR-</strong> root. The parallels run deep:</p>
@@ -769,13 +554,6 @@ blockquote cite {
 <section class="fade-section">
 <span class="section-number">Part IV</span>
 <h2 id="part4">Cosmological Mapping — The Worlds Within the World</h2>
-
-<figure class="sruti-figure">
-  <a href="/images/war.png" class="lb" data-caption="Mūmakil meets Kurukṣetra: dust, saffron, antique gold — cinematic movement without chaos.">
-    <img src="/images/war.png" alt="Part IV — Formations at Scale" loading="lazy" decoding="async">
-  </a>
-  <figcaption class="figcap"><b>Part IV — Formations at Scale</b> — Mūmakil meets Kurukṣetra: dust, saffron, antique gold — cinematic movement without chaos.</figcaption>
-</figure>
 
 <h3>Elves ↔ Gandharvas</h3>
 <p>Celestial beings — beautiful, musical, ancient, connected to higher realms. The Elves leaving Middle-earth mirrors the Gandharvas dwelling in celestial realms. Rivendell and Lothlórien have that <span class="sanskrit-term">Gandharva-loka</span> energy — enchanted places where time moves differently.</p>
@@ -995,51 +773,6 @@ function toggleFn(id) {
     }
   }
 }
-</script>
-
-
-<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
-  <div class="lightbox-inner">
-    <img class="lightbox-img" id="lightboxImg" alt="">
-    <div class="lightbox-bar">
-      <div id="lightboxCap"> </div>
-      <button class="lightbox-btn" id="lightboxClose" type="button">Close</button>
-    </div>
-  </div>
-</div>
-<script>
-(function(){
-  const lb = document.getElementById('lightbox');
-  const img = document.getElementById('lightboxImg');
-  const cap = document.getElementById('lightboxCap');
-  const closeBtn = document.getElementById('lightboxClose');
-
-  function open(src, caption){
-    img.src = src;
-    img.alt = caption || "Śruti image";
-    cap.textContent = caption || "";
-    lb.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-  }
-  function close(){
-    lb.setAttribute('aria-hidden','true');
-    img.src = '';
-    document.body.style.overflow = '';
-  }
-
-  document.addEventListener('click', (e) => {
-    const a = e.target.closest('a.lb');
-    if(!a) return;
-    e.preventDefault();
-    const src = a.getAttribute('href');
-    const caption = a.dataset.caption || a.getAttribute('title') || '';
-    open(src, caption);
-  });
-
-  closeBtn.addEventListener('click', close);
-  lb.addEventListener('click', (e) => { if(e.target === lb) close(); });
-  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') close(); });
-})();
 </script>
 
 </body>
