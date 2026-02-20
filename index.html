@@ -53,12 +53,18 @@ body::before {
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  height: 100svh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 4rem 2rem;
+  padding-top: calc(4rem + env(safe-area-inset-top));
+  padding-bottom: calc(4rem + env(safe-area-inset-bottom));
   background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-deep) 50%, var(--parchment) 100%);
 }
 .hero-devanagari {
@@ -333,7 +339,9 @@ blockquote cite {
   .mapping { padding: 1rem 1.25rem; }
   blockquote { padding: 1.25rem 1rem; }
   blockquote p { font-size: 1.2rem; }
-  .hero { min-height: 90vh; padding: 3rem 1.5rem; }
+  .hero { padding: 3rem 1.5rem;
+    padding-top: calc(3rem + env(safe-area-inset-top));
+    padding-bottom: calc(3rem + env(safe-area-inset-bottom)); }
   .toc-panel { width: 260px; right: -280px; }
   .top-nav { padding: 0.5rem 1rem; }
 }
