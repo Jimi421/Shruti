@@ -84,7 +84,7 @@
   --saffron: #C77D2A;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; overflow-x: hidden; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; }
 body {
   background: var(--parchment);
   color: var(--ink);
@@ -92,9 +92,6 @@ body {
   font-size: 19px;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  width: 100%;
-  max-width: 100vw;
 }
 body::before {
   content: '';
@@ -121,9 +118,6 @@ body::before {
   padding-top: calc(4rem + env(safe-area-inset-top));
   padding-bottom: calc(4rem + env(safe-area-inset-bottom));
   background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-deep) 50%, var(--parchment) 100%);
-  overflow: hidden;
-  width: 100%;
-  max-width: 100vw;
 }
 .hero-devanagari {
   font-family: 'Noto Sans Devanagari', sans-serif;
@@ -375,7 +369,7 @@ blockquote cite {
 /* RESPONSIVE */
 @media (max-width: 768px) {
   body { font-size: 17px; }
-  .article { padding: 1.5rem 1.25rem 4rem; max-width: 100%; }
+  .article { padding: 1.5rem 1.25rem 4rem; }
   .mapping { padding: 1rem 1.25rem; }
   blockquote { padding: 1.25rem 1rem; }
   blockquote p { font-size: 1.2rem; }
@@ -384,8 +378,6 @@ blockquote cite {
     padding-bottom: calc(3rem + env(safe-area-inset-bottom)); }
   .toc-panel { width: 260px; right: -280px; }
   .top-nav { padding: 0.5rem 1rem; }
-  .sruti-figure { border-radius: 14px; }
-  .footer-share-btns { flex-wrap: wrap; }
 }
 
 /* --- ŚRUTI VISUAL SYSTEM (Series + Figures) --- */
@@ -404,7 +396,7 @@ blockquote cite {
   content:"";
   position:absolute; inset:0;
   background:
-    radial-gradient(min(1200px, 100vw) 600px at 50% 45%, rgba(212,168,66,0.14), transparent 55%),
+    radial-gradient(1200px 600px at 50% 45%, rgba(212,168,66,0.14), transparent 55%),
     linear-gradient(180deg, rgba(245,240,232,0.92) 0%, rgba(237,230,214,0.86) 45%, rgba(245,240,232,0.92) 100%);
   z-index:1;
 }
@@ -418,7 +410,7 @@ blockquote cite {
   animation: fadeDown 1.2s ease 0.15s forwards;
 }
 .series-grid{
-  width:min(980px, calc(100% - 2rem));
+  width:min(980px, 100%);
   display:grid;
   grid-template-columns: repeat(4, minmax(0,1fr));
   gap: 14px;
@@ -430,18 +422,7 @@ blockquote cite {
   .series-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
 @media (max-width: 520px){
-  .series-grid{ display: none; }
-  .hero {
-    min-height: auto;
-    padding: 2.5rem 1.25rem;
-    padding-top: calc(2.5rem + env(safe-area-inset-top));
-    padding-bottom: calc(2.5rem + env(safe-area-inset-bottom));
-  }
-  .hero-title { font-size: 2.8rem; letter-spacing: 0.04em; }
-  .hero-subtitle { margin-bottom: 2rem; }
-  .hero-divider { margin-bottom: 2rem; }
-  .hero-seal { width: 90px; }
-  .hero-scroll { display: none; }
+  .series-grid{ grid-template-columns: 1fr; }
 }
 .series-card{
   display:block;
@@ -562,11 +543,6 @@ blockquote cite {
 }
 .lightbox-btn:hover{ border-color: rgba(184,134,11,0.45); }
 
-/* GLOBAL MOBILE SAFETY */
-img, video, iframe, figure, .sruti-figure, .series-grid, .mapping, blockquote {
-  max-width: 100%;
-}
-
 </style>
 </head>
 <body>
@@ -643,7 +619,7 @@ img, video, iframe, figure, .sruti-figure, .series-grid, .mapping, blockquote {
 <main class="article">
 
 <section class="fade-section">
-<p>The <a href="https://en.wikipedia.org/wiki/Mahabharata" class="wiki sanskrit-term" target="_blank" rel="noopener">Mahābhārata</a> is the longest epic poem in human history, composed by <a href="https://en.wikipedia.org/wiki/Vyasa" class="wiki" target="_blank" rel="noopener">Vyāsa</a> over three thousand years ago — the story of a great war for <span class="sanskrit-term">dharma</span> fought between two branches of a royal family. <em><a href="https://en.wikipedia.org/wiki/The_Lord_of_the_Rings" class="wiki" target="_blank" rel="noopener">The Lord of the Rings</a></em> is J.R.R. Tolkien's twentieth-century mythology for England — the story of a fellowship's journey to destroy a ring of power before it consumes the world. Tolkien, a philologist steeped in the Indo-European root languages, built on foundations the Vedic tradition laid millennia before him — and both epics may preserve echoes of something older than either.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Mahabharata" class="wiki sanskrit-term" target="_blank" rel="noopener">Mahābhārata</a> is the longest epic poem in human history, composed by <a href="https://en.wikipedia.org/wiki/Vyasa" class="wiki" target="_blank" rel="noopener">Vyāsa</a> over three thousand years ago — the story of a great war for <a href="https://en.wikipedia.org/wiki/Dharma" class="wiki sanskrit-term" target="_blank" rel="noopener">dharma</a> fought between two branches of a royal family. <em><a href="https://en.wikipedia.org/wiki/The_Lord_of_the_Rings" class="wiki" target="_blank" rel="noopener">The Lord of the Rings</a></em> is J.R.R. Tolkien's twentieth-century mythology for England — the story of a fellowship's journey to destroy a ring of power before it consumes the world. Tolkien, a philologist steeped in the Indo-European root languages, built on foundations the Vedic tradition laid millennia before him — and both epics may preserve echoes of something older than either.</p>
 </section>
 
 <!-- SECTION I -->
@@ -661,8 +637,8 @@ img, video, iframe, figure, .sruti-figure, .series-grid, .mapping, blockquote {
 <p>The mapping between the Mahābhārata and Lord of the Rings is not coincidence. It points to something older and deeper — a shared memory preserved across civilizations that predates any single tradition. To understand why Tolkien's mythology echoes the Vedas so precisely, we must begin before the split.</p>
 
 <h3 id="part1-vedic">The Vedic World & Its Sumerian Neighbors</h3>
-<p>The Vedic civilization did not exist in isolation. By the third millennium BCE, the Indus Valley — home to the great cities of <a href="https://en.wikipedia.org/wiki/Harappa" class="wiki" target="_blank" rel="noopener">Harappa</a> and <a href="https://en.wikipedia.org/wiki/Mohenjo-daro" class="wiki" target="_blank" rel="noopener">Mohenjo-daro</a> — was already an advanced urban culture with sophisticated drainage systems, standardized weights, and extensive trade networks. The Sumerians of Mesopotamia called this civilization <span class="sanskrit-term">Meluhha</span>. Cuneiform tablets from as early as 2350 BCE record Meluhhan ships docking at Akkadian ports, carrying carnelian beads, lapis lazuli, ivory, and timber. <a href="https://en.wikipedia.org/wiki/Sargon_of_Akkad" class="wiki" target="_blank" rel="noopener">Sargon of Akkad</a> himself boasted that ships from Meluhha, Magan, and Dilmun moored at the quays of his capital. There were even Meluhhan trading villages established within Sumerian cities — Indus Valley merchants living in Mesopotamia, their seals found at Ur, Babylon, and Kish.</p>
-<p>Among the thousands of seals excavated from Mohenjo-daro, one stands above the rest: the <strong><a href="https://en.wikipedia.org/wiki/Pashupati_seal" class="wiki" target="_blank" rel="noopener">Pashupati seal</a></strong>, dated to approximately 2500 BCE. It depicts a figure seated in a yogic posture — cross-legged, hands on knees, in what appears to be <span class="sanskrit-term">padmāsana</span> — surrounded by animals: a tiger, an elephant, a rhinoceros, a buffalo, and deer beneath his throne. The figure wears a horned headdress and has been widely identified as <strong>Proto-Śiva</strong>, an early form of the god who would become Paśupati — Lord of Animals, Yogeśvara — Lord of Yoga, Mahādeva — the Great God. This is a figure seated in meditation four and a half thousand years ago. The practice of dhyāna, the stillness that would flow through the Vedas, through the Buddha, through Zen — it was already there, carved in steatite, in the Indus Valley, while Sumerians were writing cuneiform next door.</p>
+<p>The Vedic civilization did not exist in isolation. By the third millennium BCE, the Indus Valley — home to the great cities of <a href="https://en.wikipedia.org/wiki/Harappa" class="wiki" target="_blank" rel="noopener">Harappa</a> and <a href="https://en.wikipedia.org/wiki/Mohenjo-daro" class="wiki" target="_blank" rel="noopener">Mohenjo-daro</a> — was already an advanced urban culture with sophisticated drainage systems, standardized weights, and extensive trade networks. The Sumerians of Mesopotamia called this civilization <a href="https://en.wikipedia.org/wiki/Meluhha" class="wiki sanskrit-term" target="_blank" rel="noopener">Meluhha</a>. Cuneiform tablets from as early as 2350 BCE record Meluhhan ships docking at Akkadian ports, carrying carnelian beads, lapis lazuli, ivory, and timber. <a href="https://en.wikipedia.org/wiki/Sargon_of_Akkad" class="wiki" target="_blank" rel="noopener">Sargon of Akkad</a> himself boasted that ships from Meluhha, Magan, and Dilmun moored at the quays of his capital. There were even Meluhhan trading villages established within Sumerian cities — Indus Valley merchants living in Mesopotamia, their seals found at Ur, Babylon, and Kish.</p>
+<p>Among the thousands of seals excavated from Mohenjo-daro, one stands above the rest: the <strong><a href="https://en.wikipedia.org/wiki/Pashupati_seal" class="wiki" target="_blank" rel="noopener">Pashupati seal</a></strong>, dated to approximately 2500 BCE. It depicts a figure seated in a yogic posture — cross-legged, hands on knees, in what appears to be <a href="https://en.wikipedia.org/wiki/Lotus_position" class="wiki sanskrit-term" target="_blank" rel="noopener">padmāsana</a> — surrounded by animals: a tiger, an elephant, a rhinoceros, a buffalo, and deer beneath his throne. The figure wears a horned headdress and has been widely identified as <strong>Proto-Śiva</strong>, an early form of the god who would become Paśupati — Lord of Animals, Yogeśvara — Lord of Yoga, Mahādeva — the Great God. This is a figure seated in meditation four and a half thousand years ago. The practice of dhyāna, the stillness that would flow through the Vedas, through the Buddha, through Zen — it was already there, carved in steatite, in the Indus Valley, while Sumerians were writing cuneiform next door.</p>
 
 <h3 id="part1-gudea">Gudea of Lagash — The King Who Knew Meluhha</h3>
 <p><strong><a href="https://en.wikipedia.org/wiki/Gudea" class="wiki" target="_blank" rel="noopener">Gudea</a></strong>, ruler (<span class="sanskrit-term">ensi</span>) of the Sumerian city-state of <a href="https://en.wikipedia.org/wiki/Lagash" class="wiki" target="_blank" rel="noopener">Lagash</a> (c. 2144–2124 BCE), is the living proof of this connection. His own inscriptions — the <a href="https://en.wikipedia.org/wiki/Gudea_cylinders" class="wiki" target="_blank" rel="noopener">Gudea cylinders</a>, the longest known text written in the Sumerian language — explicitly mention Meluhha as a source of materials for his great temple-building projects.<span class="fn" onclick="toggleFn('gudea')">3</span> In the cylinders, Gudea records procuring "blocks of lapis lazuli and bright carnelian from Meluhha." He writes that "Magan and Meluhha will come down from their mountains to attend" his temple. Meluhhan emissaries arrived in Lagash bearing gold dust, carnelian, and exotic goods from the Indus Valley. Gudea was not trading with an abstraction — he was receiving craftsmen and materials from the civilization that produced the Pashupati seal.</p>
@@ -676,20 +652,20 @@ img, video, iframe, figure, .sruti-figure, .series-grid, .mapping, blockquote {
 <p>In the Vedic tradition, <a href="https://en.wikipedia.org/wiki/Indra" class="wiki" target="_blank" rel="noopener">Indra</a>'s function is precisely this: he is the splitter. He wields the <a href="https://en.wikipedia.org/wiki/Vajra" class="wiki" target="_blank" rel="noopener">Vajra</a>. He breaks open Vala's cave to release stolen knowledge. He slays <a href="https://en.wikipedia.org/wiki/Vritra" class="wiki" target="_blank" rel="noopener">Vṛtra</a> to release the waters. Indra shatters unity so that humanity must struggle to find it again. The Sumerians had Enlil. Genesis has Yahweh. The Vedic tradition has Indra. Three names for the same force that shattered the original unity.</p>
 
 <h3>Indra the Enforcer — The Cosmic Circuit Breaker</h3>
-<p>But Indra's role as the splitter is not a one-time event. It is his <em>ongoing function</em>. Throughout the Vedic literature and the epics, Indra actively intervenes whenever any being — mortal, ṛṣi, or asura — accumulates too much power through austerities (<span class="sanskrit-term">tapas</span>). When a sage's penance grows so fierce it threatens to destabilize the cosmic order, Indra sends <span class="sanskrit-term">apsarās</span> — celestial maidens — to seduce them and break their concentration. He disrupts <span class="sanskrit-term">yajñas</span> (sacrificial rites). He sabotages the accumulation of power before it can rival the gods.</p>
-<p><a href="https://en.wikipedia.org/wiki/Vishvamitra" class="wiki" target="_blank" rel="noopener">Viśvāmitra</a>, one of the greatest ṛṣis, had his tapas broken multiple times by Indra sending the apsarā <a href="https://en.wikipedia.org/wiki/Menaka" class="wiki" target="_blank" rel="noopener">Menakā</a>. Indra sent Rambhā to disrupt other sages. When <a href="https://en.wikipedia.org/wiki/Ravana" class="wiki" target="_blank" rel="noopener">Rāvaṇa</a> accumulated ten heads' worth of tapas to earn invulnerability from Brahmā, the cosmos trembled. When <a href="https://en.wikipedia.org/wiki/Hiranyakashipu" class="wiki" target="_blank" rel="noopener">Hiraṇyakaśipu</a> performed austerities so severe that he earned near-invincibility, Viṣṇu himself had to incarnate as <a href="https://en.wikipedia.org/wiki/Narasimha" class="wiki" target="_blank" rel="noopener">Narasiṃha</a> to restore balance.</p>
+<p>But Indra's role as the splitter is not a one-time event. It is his <em>ongoing function</em>. Throughout the Vedic literature and the epics, Indra actively intervenes whenever any being — mortal, ṛṣi, or asura — accumulates too much power through austerities (<a href="https://en.wikipedia.org/wiki/Tapas_(Indian_religions)" class="wiki sanskrit-term" target="_blank" rel="noopener">tapas</a>). When a sage's penance grows so fierce it threatens to destabilize the cosmic order, Indra sends <a href="https://en.wikipedia.org/wiki/Apsara" class="wiki sanskrit-term" target="_blank" rel="noopener">apsarās</a> — celestial maidens — to seduce them and break their concentration. He disrupts <a href="https://en.wikipedia.org/wiki/Yajna" class="wiki sanskrit-term" target="_blank" rel="noopener">yajñas</a> (sacrificial rites). He sabotages the accumulation of power before it can rival the gods.</p>
+<p><a href="https://en.wikipedia.org/wiki/Vishvamitra" class="wiki" target="_blank" rel="noopener">Viśvāmitra</a>, one of the greatest ṛṣis, had his tapas broken multiple times by Indra sending the apsarā <a href="https://en.wikipedia.org/wiki/Menaka" class="wiki" target="_blank" rel="noopener">Menakā</a>. Indra sent Rambhā to disrupt other sages. When <a href="https://en.wikipedia.org/wiki/Ravana" class="wiki" target="_blank" rel="noopener">Rāvaṇa</a> accumulated ten heads' worth of tapas to earn invulnerability from Brahmā, the cosmos trembled. When <a href="https://en.wikipedia.org/wiki/Hiranyakashipu" class="wiki" target="_blank" rel="noopener">Hiraṇyakaśipu</a> performed austerities so severe that he earned near-invincibility, <a href="https://en.wikipedia.org/wiki/Vishnu" class="wiki" target="_blank" rel="noopener">Viṣṇu</a> himself had to incarnate as <a href="https://en.wikipedia.org/wiki/Narasimha" class="wiki" target="_blank" rel="noopener">Narasiṃha</a> to restore balance.</p>
 <p>This is the same cosmic pattern in every tradition: <strong>the divine order does not allow any single being to accumulate enough power to rival it.</strong> When someone tries — Jarāsandha collecting kings, Nimrod building upward, Sauron forging the Ring, Rāvaṇa demanding invulnerability — the cosmic immune system activates. God scatters Babel. Indra sends apsarās. The Valar send Gandalf. Same function, same force, different names.</p>
 <p>This makes the Gandalf parallel even sharper: Gandalf is literally sent by the Valar to counter Sauron's accumulation of power. He is not freelancing. He is performing Indra's function — the cosmic circuit breaker deployed when one force threatens to absorb too much.</p>
 
 <h3 id="part1-memories">Shared Memories Across Civilizations</h3>
 
-<p><strong>The Flood:</strong> The oldest known flood narrative comes from Sumer — the story of <a href="https://en.wikipedia.org/wiki/Ziusudra" class="wiki" target="_blank" rel="noopener">Ziusudra</a>, a righteous king warned by the god <a href="https://en.wikipedia.org/wiki/Enki" class="wiki" target="_blank" rel="noopener">Enki</a> to build a boat before the gods send a deluge to destroy humanity. The Akkadian version gives us <a href="https://en.wikipedia.org/wiki/Utnapishtim" class="wiki" target="_blank" rel="noopener">Utnapishtim</a> in the <em><a href="https://en.wikipedia.org/wiki/Epic_of_Gilgamesh" class="wiki" target="_blank" rel="noopener">Epic of Gilgamesh</a></em> (c. 2100 BCE), who builds a vessel, loads it with animals, and survives the waters. Genesis gives us Noah, warned by Yahweh. The Vedic tradition gives us Manu, warned by a fish — <span class="sanskrit-term">Matsya avatāra</span>, the first incarnation of Viṣṇu — to build a boat. The <em>Śatapatha Brāhmaṇa</em> records: "There lived in ancient time a holy man called Manu, who, by penances and prayers, had won the favour of the lord of heaven."<span class="fn" onclick="toggleFn('satapatha')">4</span> Manu survives the flood with the <span class="sanskrit-term">Saptaṛṣi</span> — the seven sages — and seeds of life to re-establish civilization. The structural parallels are precise: a divine warning to one righteous man, a vessel, the destruction of a corrupted world, and the rebirth of civilization from the survivors.</p>
+<p><strong>The Flood:</strong> The oldest known flood narrative comes from Sumer — the story of <a href="https://en.wikipedia.org/wiki/Ziusudra" class="wiki" target="_blank" rel="noopener">Ziusudra</a>, a righteous king warned by the god <a href="https://en.wikipedia.org/wiki/Enki" class="wiki" target="_blank" rel="noopener">Enki</a> to build a boat before the gods send a deluge to destroy humanity. The Akkadian version gives us <a href="https://en.wikipedia.org/wiki/Utnapishtim" class="wiki" target="_blank" rel="noopener">Utnapishtim</a> in the <em><a href="https://en.wikipedia.org/wiki/Epic_of_Gilgamesh" class="wiki" target="_blank" rel="noopener">Epic of Gilgamesh</a></em> (c. 2100 BCE), who builds a vessel, loads it with animals, and survives the waters. Genesis gives us Noah, warned by Yahweh. The Vedic tradition gives us <a href="https://en.wikipedia.org/wiki/Manu_(Hinduism)" class="wiki" target="_blank" rel="noopener">Manu</a>, warned by a fish — <a href="https://en.wikipedia.org/wiki/Matsya" class="wiki sanskrit-term" target="_blank" rel="noopener">Matsya avatāra</a>, the first incarnation of Viṣṇu — to build a boat. The <em>Śatapatha Brāhmaṇa</em> records: "There lived in ancient time a holy man called Manu, who, by penances and prayers, had won the favour of the lord of heaven."<span class="fn" onclick="toggleFn('satapatha')">4</span> Manu survives the flood with the <span class="sanskrit-term">Saptaṛṣi</span> — the seven sages — and seeds of life to re-establish civilization. The structural parallels are precise: a divine warning to one righteous man, a vessel, the destruction of a corrupted world, and the rebirth of civilization from the survivors.</p>
 <div class="footnote-panel" id="fn-satapatha"><div class="footnote-panel-inner"><span class="fn-source"><em>Śatapatha Brāhmaṇa</em>, I.8.1.</span> The Matsya Purāṇa and the <em>Mahābhārata</em> (Vana Parva) also contain extended accounts of the Manu flood narrative.</div></div>
 
 <p><strong>The Seven Sages:</strong> This parallel deserves far more attention than it typically receives. The Sumerians had the <a href="https://en.wikipedia.org/wiki/Apkallu" class="wiki sanskrit-term" target="_blank" rel="noopener">Apkallū</a> (Akkadian) or <span class="sanskrit-term">Abgal</span> (Sumerian) — seven demigod sages created by the god Enki in the cosmic deep (<span class="sanskrit-term">Apsû</span>), sent to establish culture and give civilization to humanity. They served as priests and advisors to the earliest kings of Sumer <em>before the flood</em>. They are credited with giving humanity the <em>Me</em> — the moral code, the crafts, and the arts. Their names are recorded: Uanna, "who finished the plans for heaven and earth"; Uannedugga, "who was endowed with comprehensive intelligence"; down to Utuabzu, "who ascended to heaven."</p>
 <p>The Vedic tradition has the <a href="https://en.wikipedia.org/wiki/Saptarishi" class="wiki sanskrit-term" target="_blank" rel="noopener">Saptaṛṣi</a> — seven ṛṣis who are the patriarchs of the Vedic religion, the "mind-born sons of Brahmā" who descend from the celestial realms (<span class="sanskrit-term">Maharloka</span>) to lay the foundations of civilization on earth. They are identified with the seven stars of the Great Bear constellation (Ursa Major). The earliest Vedic list from the <em>Jaiminīya Brāhmaṇa</em> names them: Vasiṣṭha, Bharadvāja, Jamadagni, Gautama, Atri, Viśvāmitra, and Agastya. Both traditions assign the sages the same function: they are custodians of divine knowledge, civilizers of humanity, intermediaries between gods and men.</p>
 <p>The parallel extends further. The Sumerians taught that the Apkallū were present <em>before</em> the flood, and that after the deluge, human sages (<em>ummānu</em>) inherited their wisdom. In the Vedic tradition, the Saptaṛṣi survive the flood alongside Manu and carry the sacred knowledge forward into the new age. Both traditions describe a pre-flood golden age of divine wisdom, a catastrophic destruction, and a post-flood transmission of knowledge through chosen custodians. The "Uruk List of Kings and Sages" (165 BCE) pairs each sage with a specific antediluvian king — the same structure as Vedic genealogies pairing ṛṣis with royal lineages.</p>
-<p>The Hebrew Bible carries its own echo: Proverbs 9:1 declares "Wisdom has built her house; she has set up its seven pillars." Some scholars suggest this alludes to a tradition of seven sages laying civilization's foundations, transformed into a hymn to divine wisdom. Enoch, the seventh from Adam in Genesis, is described as the first to learn writing, astronomy, and wisdom — and his ascension to heaven mirrors the Sumerian sage Utuabzu, who was said to have ascended to heaven. Seven sages. Seven pillars. Seven stars. The number itself is a memory.</p>
+<p>The Hebrew Bible carries its own echo: Proverbs 9:1 declares "Wisdom has built her house; she has set up its seven pillars." Some scholars suggest this alludes to a tradition of seven sages laying civilization's foundations, transformed into a hymn to divine wisdom. <a href="https://en.wikipedia.org/wiki/Enoch_(ancestor_of_Noah)" class="wiki" target="_blank" rel="noopener">Enoch</a>, the seventh from Adam in Genesis, is described as the first to learn writing, astronomy, and wisdom — and his ascension to heaven mirrors the Sumerian sage Utuabzu, who was said to have ascended to heaven. Seven sages. Seven pillars. Seven stars. The number itself is a memory.</p>
 
 <div class="mapping">
 <div class="mapping-title">Enki / Agni — The Scholarly Bridge</div>
@@ -700,12 +676,12 @@ img, video, iframe, figure, .sruti-figure, .series-grid, .mapping, blockquote {
 <p>These are not borrowings from one tradition to another. They are independent windows into something that existed before the split — a shared memory that multiple civilizations preserved in their own language and imagery. When three civilizations separated by thousands of miles all remember seven sages, a great flood, a righteous survivor, and the transmission of divine knowledge to rebuild the world — the question is not whether these traditions are connected, but how far back the connection goes.</p>
 
 <h3 id="part1-sanskrit">Sanskrit as Devabhāṣā — The Language of the Gods</h3>
-<p>Sanskrit is called <span class="sanskrit-term">Devabhāṣā</span> — the language of the gods. It was not considered a human invention. The Vedas are called <span class="sanskrit-term">śruti</span> ("that which was heard") because the ṛṣis did not compose them — they received them. Every sound is mapped to a cosmic principle, every vibration connected to creation itself.</p>
+<p>Sanskrit is called <a href="https://en.wikipedia.org/wiki/Sanskrit#Status" class="wiki sanskrit-term" target="_blank" rel="noopener">Devabhāṣā</a> — the language of the gods. It was not considered a human invention. The Vedas are called <span class="sanskrit-term">śruti</span> ("that which was heard") because the ṛṣis did not compose them — they received them. Every sound is mapped to a cosmic principle, every vibration connected to creation itself.</p>
 <p>If there was an original language that connected humanity to the divine — a pre-Babel tongue — Sanskrit's claim to being closest to that source is stronger than almost anything else on earth. It is the oldest well-documented language in its family, and when scholars attempt to reconstruct the ancient root languages, Sanskrit is one of their primary reference points because it preserved forms that every other language lost.</p>
 
 <h3>Jarāsandha ↔ Nimrod ↔ Sauron — The Tyrant Who Would Surpass the Gods</h3>
 <p>This archetype — the tyrant who seeks to break the cosmic order — appears in all three traditions. <a href="https://en.wikipedia.org/wiki/Jarasandha" class="wiki" target="_blank" rel="noopener">Jarāsandha</a>, the mighty king of Magadha, conquered and imprisoned eighty-six kings with the ambition to reach one hundred — to sacrifice them all as an offering to Lord Śiva and secure superhuman power. He was so powerful that even Krishna relocated the entire Yādava population from Mathurā to Dvārakā to escape his wrath.</p>
-<p><a href="https://en.wikipedia.org/wiki/Nimrod" class="wiki" target="_blank" rel="noopener">Nimrod</a> in Genesis builds the Tower of Babel to reach God. Sauron forges the One Ring to dominate all free peoples. All three are the same archetype: <strong>the tyrant who seeks to break the cosmic order and make himself supreme. And all three must fall.</strong></p>
+<p><a href="https://en.wikipedia.org/wiki/Nimrod" class="wiki" target="_blank" rel="noopener">Nimrod</a> in Genesis builds the Tower of Babel to reach God. <a href="https://en.wikipedia.org/wiki/Sauron" class="wiki" target="_blank" rel="noopener">Sauron</a> forges the One Ring to dominate all free peoples. All three are the same archetype: <strong>the tyrant who seeks to break the cosmic order and make himself supreme. And all three must fall.</strong></p>
 
 <div class="mapping">
 <div class="mapping-title">The Covert Mission</div>
@@ -767,18 +743,18 @@ img, video, iframe, figure, .sruti-figure, .series-grid, .mapping, blockquote {
 
 <h3 id="part3-arjuna">Arjuna ↔ Aragorn (Strider)</h3>
 <p>Even the names share the <strong>AR-</strong> root. The parallels run deep:</p>
-<p><strong>The reluctant king-warrior.</strong> <a href="https://en.wikipedia.org/wiki/Arjuna" class="wiki" target="_blank" rel="noopener">Arjuna</a> drops his bow in the chariot and says "I cannot do this." Aragorn spends decades as Strider, refusing his lineage, reluctant to claim the throne of Gondor. Both carry the dharma of the Kṣatriya but resist it. Both need divine counsel to step into who they are.</p>
-<p><strong>The exile in the wilderness.</strong> Arjuna's years of <span class="sanskrit-term">vanavāsa</span> — wandering in disguise, mastering weapons, living anonymously — mirror Aragorn's decades as a ranger. Both return from exile to claim their role in the great war.</p>
-<p><strong>The divine weapons.</strong> Arjuna receives the Pāśupatāstra from Śiva and the Gāṇḍīva bow. Aragorn receives Andúril, the reforged sword. Both weapons symbolize the warrior's readiness to fulfill his purpose.</p>
+<p><strong>The reluctant king-warrior.</strong> <a href="https://en.wikipedia.org/wiki/Arjuna" class="wiki" target="_blank" rel="noopener">Arjuna</a> drops his bow in the chariot and says "I cannot do this." <a href="https://en.wikipedia.org/wiki/Aragorn" class="wiki" target="_blank" rel="noopener">Aragorn</a> spends decades as Strider, refusing his lineage, reluctant to claim the throne of Gondor. Both carry the dharma of the <a href="https://en.wikipedia.org/wiki/Kshatriya" class="wiki" target="_blank" rel="noopener">Kṣatriya</a> but resist it. Both need divine counsel to step into who they are.</p>
+<p><strong>The exile in the wilderness.</strong> Arjuna's years of <a href="https://en.wikipedia.org/wiki/Vanvas" class="wiki sanskrit-term" target="_blank" rel="noopener">vanavāsa</a> — wandering in disguise, mastering weapons, living anonymously — mirror Aragorn's decades as a ranger. Both return from exile to claim their role in the great war.</p>
+<p><strong>The divine weapons.</strong> Arjuna receives the <a href="https://en.wikipedia.org/wiki/Pashupatastra" class="wiki" target="_blank" rel="noopener">Pāśupatāstra</a> from Śiva and the <a href="https://en.wikipedia.org/wiki/Gandiva" class="wiki" target="_blank" rel="noopener">Gāṇḍīva</a> bow. Aragorn receives Andúril, the reforged sword. Both weapons symbolize the warrior's readiness to fulfill his purpose.</p>
 <p><strong>The first ranger.</strong> Arjuna moving through the forests, operating in the margins, protecting dharma from the shadows before the war begins. That IS the ranger archetype.</p>
 
 <h3 id="part3-gandalf">Gandalf ↔ Krishna</h3>
-<p>Krishna is the charioteer — he doesn't fight directly but <em>guides</em> the warrior. Gandalf operates the same way: he doesn't wield ultimate power to defeat Sauron himself. He counsels, inspires, and holds the line so others can fulfill their dharma.</p>
+<p><a href="https://en.wikipedia.org/wiki/Krishna" class="wiki" target="_blank" rel="noopener">Krishna</a> is the charioteer — he doesn't fight directly but <em>guides</em> the warrior. Gandalf operates the same way: he doesn't wield ultimate power to defeat Sauron himself. He counsels, inspires, and holds the line so others can fulfill their dharma.</p>
 <p>The <a href="https://en.wikipedia.org/wiki/Bhagavad_Gita" class="wiki" target="_blank" rel="noopener">Bhagavad Gītā</a> happens right before the battle. Gandalf's great speeches serve the same function. "All we have to decide is what to do with the time that is given us" is practically a Gītā verse.</p>
-<p>Gandalf the Grey dies and returns as Gandalf the White — the ascent from lower to higher consciousness that <a href="https://en.wikipedia.org/wiki/Sri_Aurobindo" class="wiki" target="_blank" rel="noopener">Sri Aurobindo</a> describes. He is not a warrior; he is a conduit for divine light breaking through.</p>
+<p><a href="https://en.wikipedia.org/wiki/Gandalf" class="wiki" target="_blank" rel="noopener">Gandalf</a> the Grey dies and returns as Gandalf the White — the ascent from lower to higher consciousness that <a href="https://en.wikipedia.org/wiki/Sri_Aurobindo" class="wiki" target="_blank" rel="noopener">Sri Aurobindo</a> describes. He is not a warrior; he is a conduit for divine light breaking through.</p>
 
 <h3>Gimli ↔ Bhīma</h3>
-<p>The stout, powerful warrior who fights with raw strength and fury. Gimli with his axe, <a href="https://en.wikipedia.org/wiki/Bhima" class="wiki" target="_blank" rel="noopener">Bhīma</a> with his <span class="sanskrit-term">gadā</span>. Neither is elegant. They just HIT.</p>
+<p>The stout, powerful warrior who fights with raw strength and fury. Gimli with his axe, <a href="https://en.wikipedia.org/wiki/Bhima" class="wiki" target="_blank" rel="noopener">Bhīma</a> with his <a href="https://en.wikipedia.org/wiki/Gada_(mace)" class="wiki sanskrit-term" target="_blank" rel="noopener">gadā</a>. Neither is elegant. They just HIT.</p>
 <p>Loud, boastful, competitive. Gimli counting kills at Helm's Deep — "That still only counts as one!" — is pure Bhīma energy. Trash talk earned because he backs it up every time.</p>
 <p>Both are underestimated. Bhīma is dismissed as just the brute. Gimli is "just the Dwarf." But both have depth underneath — Bhīma's devotion to his family, Gimli's speechless wonder at the Glittering Caves, his reverence for Galadriel. The warrior with the tender heart. Even the appetite — Bhīma is famous for his eating.</p>
 
@@ -832,24 +808,24 @@ img, video, iframe, figure, .sruti-figure, .series-grid, .mapping, blockquote {
 </figure>
 
 <h3>Elves ↔ <a href="https://en.wikipedia.org/wiki/Gandharva" class="wiki" target="_blank" rel="noopener">Gandharvas</a></h3>
-<p>Celestial beings — beautiful, musical, ancient, connected to higher realms. The Elves leaving Middle-earth mirrors the Gandharvas dwelling in celestial realms. Rivendell and Lothlórien have that <span class="sanskrit-term">Gandharva-loka</span> energy — enchanted places where time moves differently.</p>
+<p>Celestial beings — beautiful, musical, ancient, connected to higher realms. The Elves leaving Middle-earth mirrors the Gandharvas dwelling in celestial realms. Rivendell and Lothlórien have that <a href="https://en.wikipedia.org/wiki/Gandharva#Abode" class="wiki sanskrit-term" target="_blank" rel="noopener">Gandharva-loka</a> energy — enchanted places where time moves differently.</p>
 
 <h3>Orcs ↔ <a href="https://en.wikipedia.org/wiki/Rakshasa" class="wiki" target="_blank" rel="noopener">Rākṣasas</a></h3>
-<p>Corrupted beings, once something else but twisted by dark power. In the Silmarillion, Orcs were Elves tortured by Morgoth. Rākṣasas are powerful beings who turned toward adharma. The Uruk-hai have that Rākṣasa quality — specifically bred for war and destruction.</p>
+<p>Corrupted beings, once something else but twisted by dark power. In the Silmarillion, Orcs were Elves tortured by <a href="https://en.wikipedia.org/wiki/Morgoth" class="wiki" target="_blank" rel="noopener">Morgoth</a>. Rākṣasas are powerful beings who turned toward adharma. The Uruk-hai have that Rākṣasa quality — specifically bred for war and destruction.</p>
 
 <h3>Ents ↔ <a href="https://en.wikipedia.org/wiki/Yaksha" class="wiki" target="_blank" rel="noopener">Yakṣas</a></h3>
 <p>In the Vana Parva, a Yakṣa guards a sacred lake and kills <a href="https://en.wikipedia.org/wiki/Yudhishthira" class="wiki" target="_blank" rel="noopener">Yudhiṣṭhira</a>'s brothers one by one when they refuse to answer his questions before drinking — he enforces nature's law and will destroy even great warriors who disrespect that boundary.</p>
-<p>That is exactly Treebeard and the Ents. Ancient, terrifying guardians patient for ages, but when Saruman cuts down Fangorn, they march on Isengard and tear it apart. The Yakṣa waking up. Saruman's industrialization is a violation of <span class="sanskrit-term">ṛta</span> (cosmic order), and the Ents rising is nature's dharma reasserting itself.</p>
+<p>That is exactly Treebeard and the Ents. Ancient, terrifying guardians patient for ages, but when Saruman cuts down Fangorn, they march on Isengard and tear it apart. The Yakṣa waking up. Saruman's industrialization is a violation of <a href="https://en.wikipedia.org/wiki/Rta" class="wiki sanskrit-term" target="_blank" rel="noopener">ṛta</a> (cosmic order), and the Ents rising is nature's dharma reasserting itself.</p>
 
 <h3>The <a href="https://en.wikipedia.org/wiki/Ainulindal%C3%AB" class="wiki" target="_blank" rel="noopener">Ainulindalë</a> ↔ Nāda Brahman</h3>
-<p>The creation music in the Silmarillion — the world sung into existence — resonates with <span class="sanskrit-term">Nāda Brahman</span>, creation emerging from primordial sound. The Gospel of John opens with "In the beginning was the Word" — the same teaching in yet another tradition.</p>
+<p>The creation music in the Silmarillion — the world sung into existence — resonates with <a href="https://en.wikipedia.org/wiki/Nada_Brahma" class="wiki sanskrit-term" target="_blank" rel="noopener">Nāda Brahman</a>, creation emerging from primordial sound. The Gospel of John opens with "In the beginning was the Word" — the same teaching in yet another tradition.</p>
 
 <h3>The One Ring ↔ Māyā / Kāma</h3>
-<p>The Ring functions as <span class="sanskrit-term">māyā</span> — the binding illusion that entraps consciousness in attachment and power. Everyone who touches it becomes attached. This is the Gītā's teaching on attachment as the root of destruction. Frodo's journey to Mount Doom mirrors the renunciant's path — stripping away ego-attachment.</p>
+<p>The Ring functions as <a href="https://en.wikipedia.org/wiki/Maya_(religion)" class="wiki sanskrit-term" target="_blank" rel="noopener">māyā</a> — the binding illusion that entraps consciousness in attachment and power. Everyone who touches it becomes attached. This is the Gītā's teaching on attachment as the root of destruction. Frodo's journey to Mount Doom mirrors the renunciant's path — stripping away ego-attachment.</p>
 
 <h3>Mūmakil ↔ Vedic War Elephants</h3>
-<p>There are no elephants in Europe since the Ice Age. Yet Tolkien places massive war elephants at the Pelennor Fields. Scholars Solopova and Lee argue the mūmakil place the Haradrim far to the East — only India continued using war elephants after classical times.<span class="fn" onclick="toggleFn('solopova')">5</span></p>
-<p>In the Mahābhārata, the <span class="sanskrit-term">akṣauhiṇī</span> formation: 1 chariot : 1 elephant : 3 cavalry : 5 infantry. Ancient Indian kings stated that <em>an army without elephants is as despicable as a forest without a lion</em>. Alexander's encounter with Indian war elephants at the Hydaspes in 326 BCE is how this image entered Western consciousness. Tolkien's Mūmakil are literally an Indian import.</p>
+<p>There are no elephants in Europe since the Ice Age. Yet Tolkien places massive war elephants at the <a href="https://en.wikipedia.org/wiki/Battle_of_the_Pelennor_Fields" class="wiki" target="_blank" rel="noopener">Pelennor Fields</a>. Scholars Solopova and Lee argue the mūmakil place the Haradrim far to the East — only India continued using war elephants after classical times.<span class="fn" onclick="toggleFn('solopova')">5</span></p>
+<p>In the Mahābhārata, the <a href="https://en.wikipedia.org/wiki/Akshauhini" class="wiki sanskrit-term" target="_blank" rel="noopener">akṣauhiṇī</a> formation: 1 chariot : 1 elephant : 3 cavalry : 5 infantry. Ancient Indian kings stated that <em>an army without elephants is as despicable as a forest without a lion</em>. Alexander's encounter with Indian war elephants at the Hydaspes in 326 BCE is how this image entered Western consciousness. Tolkien's Mūmakil are literally an Indian import.</p>
 <div class="footnote-panel" id="fn-solopova"><div class="footnote-panel-inner"><span class="fn-source">Elizabeth Solopova & Stuart D. Lee, <em>The Keys of Middle-earth: Discovering Medieval Literature Through the Fiction of J.R.R. Tolkien</em> (Palgrave Macmillan, 2005).</span></div></div>
 
 
@@ -888,11 +864,11 @@ img, video, iframe, figure, .sruti-figure, .series-grid, .mapping, blockquote {
 <p><strong>Key Source:</strong> Dr. Anuradha Choudry, Sanskrit scholar at IIT Kharagpur, PhD in Vedic Psychology from Pondicherry University, trained at the Sri Aurobindo International Centre of Education. Her work carries Aurobindo's lineage forward, showing the practical application of Vedic psychology in daily life.</p>
 
 <h3>The Guṇas in Middle-earth</h3>
-<p>The word <span class="sanskrit-term">guṇa</span> literally means "strand" or "rope" — the three guṇas are the three strands that bind all of manifest reality together. Everything in the material world — every thought, every action, every being — is woven from these three qualities in different proportions. The Gītā (Chapter 14) teaches that understanding the guṇas is understanding the operating system of creation itself.</p>
+<p>The word <a href="https://en.wikipedia.org/wiki/Gu%E1%B9%87a" class="wiki sanskrit-term" target="_blank" rel="noopener">guṇa</a> literally means "strand" or "rope" — the three guṇas are the three strands that bind all of manifest reality together. Everything in the material world — every thought, every action, every being — is woven from these three qualities in different proportions. The Gītā (Chapter 14) teaches that understanding the guṇas is understanding the operating system of creation itself.</p>
 <p><span class="gold-term">Sattva</span> — clarity, harmony, light. The quality that reveals truth. Gandalf's wisdom. The Shire at peace. The moment of stillness in meditation where perception clears.</p>
 <p><span class="gold-term">Rajas</span> — agitation, passion, movement. The quality that drives action but also attachment. Boromir's ambition. Saruman's cunning. The force that builds empires and destroys them.</p>
 <p><span class="gold-term">Tamas</span> — inertia, darkness, concealment. The quality that obscures and binds. The Ring's hold. Théoden under Wormtongue. Sauron's shadow. The force that makes beings forget what they are.</p>
-<p>Every character in the Mahābhārata and in Middle-earth can be read through these three strands. The guṇas are not a moral judgment — they are a perceptual lens. And the Mahābhārata was never meant to be "scripture" on a shelf. Vyāsa composed it as <span class="sanskrit-term">itihāsa</span>: "Thus it was." It is a mirror for life — see Duryodhana in the tyrant, Arjuna in the one who hesitates, Krishna in the friend who tells the truth you don't want to hear. The epic grows with the listener.</p>
+<p>Every character in the Mahābhārata and in Middle-earth can be read through these three strands. The guṇas are not a moral judgment — they are a perceptual lens. And the Mahābhārata was never meant to be "scripture" on a shelf. Vyāsa composed it as <a href="https://en.wikipedia.org/wiki/Itihasa" class="wiki sanskrit-term" target="_blank" rel="noopener">itihāsa</a>: "Thus it was." It is a mirror for life — see <a href="https://en.wikipedia.org/wiki/Duryodhana" class="wiki" target="_blank" rel="noopener">Duryodhana</a> in the tyrant, Arjuna in the one who hesitates, Krishna in the friend who tells the truth you don't want to hear. The epic grows with the listener.</p>
 </section>
 
 <div class="divider"><span class="divider-line"></span><span class="divider-symbol">ॐ</span><span class="divider-line"></span></div>
@@ -925,13 +901,13 @@ img, video, iframe, figure, .sruti-figure, .series-grid, .mapping, blockquote {
 <p>These archetypes are not abstract mythology. They function as operational energy — a personal pantheon carried into daily life:</p>
 
 <div class="mapping">
-<div class="mapping-title">Nakula & Sahadeva — Presentation & Grace</div>
+<div class="mapping-title">Nakula & <a href="https://en.wikipedia.org/wiki/Sahadeva" class="wiki" target="_blank" rel="noopener">Sahadeva</a> — Presentation & Grace</div>
 <p>The Aśvinī Kumāras, the divine twins — the most beautiful beings on the battlefield. Channeling their energy: looking good as self-respect and discipline. Dhārmic swagger.</p>
 </div>
 
 <div class="mapping">
 <div class="mapping-title">Bhīma — Boundaries & Raw Power</div>
-<p>The one who doesn't strategize, just handles it. He tore Duḥśāsana apart for what he did to <a href="https://en.wikipedia.org/wiki/Draupadi" class="wiki" target="_blank" rel="noopener">Draupadī</a>. Pure righteous fury. The boundary enforcer. You don't need him often, but when you do there is no substitute.</p>
+<p>The one who doesn't strategize, just handles it. He tore <a href="https://en.wikipedia.org/wiki/Dushasana" class="wiki" target="_blank" rel="noopener">Duḥśāsana</a> apart for what he did to <a href="https://en.wikipedia.org/wiki/Draupadi" class="wiki" target="_blank" rel="noopener">Draupadī</a>. Pure righteous fury. The boundary enforcer. You don't need him often, but when you do there is no substitute.</p>
 </div>
 
 <div class="mapping">
@@ -946,12 +922,12 @@ img, video, iframe, figure, .sruti-figure, .series-grid, .mapping, blockquote {
 
 <div class="mapping">
 <div class="mapping-title">Śiva & Buddha — The Meditation Seat</div>
-<p>The stillness behind all of it. Śiva in dhyāna and the Buddha in zazen are the foundation. Dhyāna in Sanskrit becomes Chán in Chinese becomes Zen in Japanese. The practice didn't change, just the mouth saying it. Śiva destroys the external world; Buddha dissolves the internal. Same seat, different direction.</p>
+<p>The stillness behind all of it. <a href="https://en.wikipedia.org/wiki/Shiva" class="wiki" target="_blank" rel="noopener">Śiva</a> in <a href="https://en.wikipedia.org/wiki/Dhyana_in_Hinduism" class="wiki" target="_blank" rel="noopener">dhyāna</a> and the <a href="https://en.wikipedia.org/wiki/Gautama_Buddha" class="wiki" target="_blank" rel="noopener">Buddha</a> in <a href="https://en.wikipedia.org/wiki/Zazen" class="wiki" target="_blank" rel="noopener">zazen</a> are the foundation. <a href="https://en.wikipedia.org/wiki/Dhyana_in_Buddhism" class="wiki" target="_blank" rel="noopener">Dhyāna</a> in Sanskrit becomes <a href="https://en.wikipedia.org/wiki/Chan_Buddhism" class="wiki" target="_blank" rel="noopener">Chán</a> in Chinese becomes <a href="https://en.wikipedia.org/wiki/Zen" class="wiki" target="_blank" rel="noopener">Zen</a> in Japanese. The practice didn't change, just the mouth saying it. Śiva destroys the external world; Buddha dissolves the internal. Same seat, different direction.</p>
 </div>
 
 <div class="mapping">
 <div class="mapping-title">The Three Yogas</div>
-<p><strong>Karma Yoga</strong> (Bhīma, Arjuna — righteous action). <strong>Bhakti Yoga</strong> (Jesus, Mitra, Krishna — devotion and covenant). <strong>Jñāna Yoga</strong> (Śiva, Buddha — knowledge through stillness). A complete system.</p>
+<p><strong><a href="https://en.wikipedia.org/wiki/Karma_yoga" class="wiki" target="_blank" rel="noopener">Karma Yoga</a></strong> (Bhīma, Arjuna — righteous action). <strong><a href="https://en.wikipedia.org/wiki/Bhakti_yoga" class="wiki" target="_blank" rel="noopener">Bhakti Yoga</a></strong> (Jesus, Mitra, Krishna — devotion and covenant). <strong><a href="https://en.wikipedia.org/wiki/Jnana_yoga" class="wiki" target="_blank" rel="noopener">Jñāna Yoga</a></strong> (Śiva, Buddha — knowledge through stillness). A complete system.</p>
 </div>
 </section>
 
