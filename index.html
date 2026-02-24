@@ -84,7 +84,7 @@
   --saffron: #C77D2A;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   background: var(--parchment);
   color: var(--ink);
@@ -92,6 +92,7 @@ body {
   font-size: 19px;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 body::before {
   content: '';
@@ -422,7 +423,10 @@ blockquote cite {
   .series-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
 @media (max-width: 520px){
-  .series-grid{ grid-template-columns: 1fr; }
+  .series-grid{ display: none; }
+  .hero { min-height: auto; padding-top: calc(3rem + env(safe-area-inset-top)); padding-bottom: calc(3rem + env(safe-area-inset-bottom)); }
+  .hero-title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
+  .hero-seal { width: 100px; }
 }
 .series-card{
   display:block;
