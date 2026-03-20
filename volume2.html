@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Śruti II — The Road from the Ṛṣis</title>
+<meta name="description" content="How the Vedic World Became Europe — and How Tolkien Walked the Road Backward. By Braxton Bailey.">
+<meta name="author" content="Braxton Bailey">
+<link rel="canonical" href="https://shruti.jimi421.com/volume2.html">
+<meta property="og:title" content="Śruti II — The Road from the Ṛṣis">
+<meta property="og:description" content="How the Vedic World Became Europe — and How Tolkien Walked the Road Backward">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://shruti.jimi421.com/volume2.html">
+<meta property="og:image" content="https://shruti.jimi421.com/images/gold_hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Śruti II — The Road from the Ṛṣis">
+<meta name="theme-color" content="#EDE6D6">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Śruti II — The Road from the Ṛṣis",
+  "description": "How the Vedic World Became Europe — and How Tolkien Walked the Road Backward",
+  "author": { "@type": "Person", "name": "Braxton Bailey" },
+  "datePublished": "2026-03-16",
+  "url": "https://shruti.jimi421.com/volume2.html",
+  "inLanguage": "en"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment: #F5F0E8;
+  --parchment-deep: #EDE6D6;
+  --ink: #2C1810;
+  --ink-light: #4A3728;
+  --ink-faded: #6B5744;
+  --gold: #B8860B;
+  --gold-light: #D4A842;
+  --gold-glow: #E8C86840;
+  --gold-subtle: #D4A84220;
+  --saffron: #C77D2A;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  background: var(--parchment); color: var(--ink);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 19px; line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; width: 100%; max-width: 100vw;
+}
+body::before {
+  content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(ellipse at 20% 50%, #D4A84208 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, #B8860B05 0%, transparent 50%);
+  pointer-events: none; z-index: 0;
+}
+.hero {
+  position: relative; min-height: 100vh; min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 4rem 2rem; padding-top: calc(4rem + env(safe-area-inset-top));
+  background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-deep) 50%, var(--parchment) 100%);
+}
+.hero-devanagari { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 1.4rem; color: var(--gold); letter-spacing: 0.15em; margin-bottom: 1.5rem; opacity: 0; animation: fadeDown 1.2s ease 0.3s forwards; }
+.hero-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 300; color: var(--ink); letter-spacing: 0.08em; line-height: 1.1; margin-bottom: 0.5rem; opacity: 0; animation: fadeUp 1.2s ease 0.5s forwards; }
+.hero-subtitle { font-family: 'EB Garamond', Georgia, serif; font-size: 1.15rem; font-style: italic; color: var(--ink-faded); letter-spacing: 0.12em; margin-bottom: 3rem; opacity: 0; animation: fadeUp 1.2s ease 0.8s forwards; }
+.hero-divider { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin-bottom: 3rem; opacity: 0; animation: fadeIn 1.5s ease 1.1s forwards; }
+.hero-essay-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 500; color: var(--ink); line-height: 1.3; max-width: 600px; margin-bottom: 0.75rem; opacity: 0; animation: fadeUp 1.2s ease 1.3s forwards; }
+.hero-essay-sub { font-family: 'EB Garamond', Georgia, serif; font-size: 1.05rem; font-style: italic; color: var(--ink-faded); margin-bottom: 1rem; opacity: 0; animation: fadeUp 1.2s ease 1.5s forwards; }
+.hero-author { font-family: 'EB Garamond', Georgia, serif; font-size: 0.95rem; color: var(--ink-faded); letter-spacing: 0.1em; opacity: 0; animation: fadeUp 1.2s ease 1.7s forwards; }
+.hero-scroll { margin-top: 2rem; opacity: 0; animation: fadeIn 1.5s ease 2.2s forwards, floatSimple 3s ease-in-out infinite 2.5s; }
+.hero-scroll svg { width: 24px; height: 24px; stroke: var(--gold); stroke-width: 1.5; fill: none; }
+@keyframes floatSimple { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+.article { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 2rem 2rem 6rem; }
+.section-number { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 0.8rem; font-weight: 600; color: var(--gold); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.8rem, 3.5vw, 2.3rem); font-weight: 400; color: var(--ink); line-height: 1.25; margin-bottom: 1.5rem; margin-top: 4rem; }
+h2:first-of-type { margin-top: 0; }
+h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.25rem, 2.5vw, 1.6rem); font-weight: 500; color: var(--ink-light); line-height: 1.3; margin-top: 2.5rem; margin-bottom: 1rem; }
+p { margin-bottom: 1.25rem; color: var(--ink-light); }
+strong { color: var(--ink); font-weight: 600; }
+.sk { color: var(--ink); font-style: italic; font-weight: 500; }
+.wiki { color: var(--ink-light); text-decoration: none; border-bottom: 1px dotted var(--gold-light); transition: color 0.3s, border-color 0.3s; }
+.wiki:hover { color: var(--gold); border-bottom-color: var(--gold); }
+.divider { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin: 4rem 0; opacity: 0.6; }
+.divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.divider-symbol { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 1.1rem; color: var(--gold); line-height: 1; }
+.mapping { background: linear-gradient(135deg, var(--parchment-deep), #F0E8D8); border-left: 3px solid var(--gold); padding: 1.25rem 1.5rem; margin: 1.75rem 0; border-radius: 0 4px 4px 0; }
+.mapping-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.15rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+.mapping p { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--ink-faded); }
+.mapping p:last-child { margin-bottom: 0; }
+blockquote { border: none; margin: 2.5rem 0; padding: 1.5rem 2rem; position: relative; text-align: center; }
+blockquote::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 2px; background: var(--gold); }
+blockquote p { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.4rem; font-weight: 400; font-style: italic; color: var(--ink); line-height: 1.5; margin-bottom: 0.5rem; }
+blockquote cite { font-family: 'EB Garamond', Georgia, serif; font-size: 0.85rem; font-style: normal; color: var(--gold); letter-spacing: 0.1em; }
+.scroll-table { overflow-x: auto; margin: 1.5rem 0 2rem; -webkit-overflow-scrolling: touch; }
+table { width: 100%; border-collapse: collapse; font-size: 1rem; }
+th { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; color: var(--gold); text-align: left; padding: 0.6rem 1rem; border-bottom: 2px solid var(--gold-subtle); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
+td { padding: 0.5rem 1rem; border-bottom: 1px solid var(--gold-subtle); color: var(--ink-light); }
+tr:last-child td { border-bottom: none; }
+.fn { display: inline-block; font-size: 0.7rem; font-weight: 600; color: var(--gold); cursor: pointer; vertical-align: super; line-height: 1; margin: 0 1px; padding: 0 2px; border-bottom: 1px dotted var(--gold-light); transition: color 0.2s; }
+.fn:hover { color: var(--saffron); }
+.footnote-panel { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; background: linear-gradient(135deg, var(--parchment-deep), #F0E8D8); border-left: 2px solid var(--gold); margin: 0.5rem 0; border-radius: 0 4px 4px 0; }
+.footnote-panel.open { max-height: 200px; }
+.footnote-panel-inner { padding: 0.75rem 1rem; font-size: 0.85rem; color: var(--ink-faded); font-style: italic; line-height: 1.5; }
+.footnote-panel-inner .fn-source { font-style: normal; font-weight: 500; color: var(--ink-light); }
+.sruti-figure { margin: 1.8rem 0 2.2rem; border-radius: 22px; overflow: hidden; border: 1px solid rgba(44,24,16,0.14); background: rgba(237,230,214,0.65); box-shadow: 0 22px 60px rgba(44,24,16,0.08); }
+.sruti-figure a { display: block; }
+.sruti-figure img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.figcap { padding: 12px 16px 14px; font-size: 0.98rem; color: var(--ink-faded); letter-spacing: 0.02em; background: linear-gradient(180deg, rgba(212,168,66,0.10), transparent 70%), rgba(245,240,232,0.94); }
+.figcap b { color: var(--ink); font-weight: 600; }
+.closing { text-align: center; padding: 4rem 0 2rem; }
+.closing-om { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 2rem; color: var(--gold); margin-bottom: 1rem; }
+.closing-mantra { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 1.1rem; color: var(--gold); margin-bottom: 1.5rem; letter-spacing: 0.05em; }
+.closing-line { font-family: 'EB Garamond', Georgia, serif; font-size: 1.05rem; font-style: italic; color: var(--ink-faded); }
+.progress-bar { position: fixed; top: 0; left: 0; height: 2px; z-index: 101; background: linear-gradient(90deg, var(--gold), var(--saffron)); width: 0%; transition: width 0.1s; }
+.top-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--parchment); border-bottom: 1px solid var(--gold-subtle); padding: 0.6rem 2rem; display: flex; align-items: center; justify-content: space-between; transform: translateY(-100%); transition: transform 0.4s ease; }
+.top-nav.visible { transform: translateY(0); }
+.top-nav-brand { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; font-weight: 400; color: var(--ink); letter-spacing: 0.08em; display: flex; align-items: center; gap: 0.5rem; text-decoration: none; cursor: pointer; }
+.top-nav-brand .nav-deva { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 0.85rem; color: var(--gold); }
+.top-nav-toggle { background: none; border: 1px solid var(--gold-subtle); border-radius: 4px; padding: 0.3rem 0.75rem; font-family: 'EB Garamond', Georgia, serif; font-size: 0.8rem; color: var(--ink-faded); cursor: pointer; letter-spacing: 0.05em; transition: all 0.3s; }
+.top-nav-toggle:hover { border-color: var(--gold); color: var(--gold); }
+.toc-panel { position: fixed; top: 0; right: -320px; width: 300px; height: 100vh; background: var(--parchment-deep); border-left: 1px solid var(--gold-subtle); z-index: 200; padding: 4rem 1.5rem 2rem; overflow-y: auto; transition: right 0.4s ease; box-shadow: -4px 0 20px rgba(0,0,0,0.05); }
+.toc-panel.open { right: 0; }
+.toc-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(44,24,16,0.2); z-index: 199; opacity: 0; pointer-events: none; transition: opacity 0.4s; }
+.toc-overlay.open { opacity: 1; pointer-events: all; }
+.toc-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.4rem; color: var(--ink-faded); cursor: pointer; line-height: 1; }
+.toc-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 0.8rem; font-weight: 600; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; }
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 0.4rem; }
+.toc-list a { font-family: 'EB Garamond', Georgia, serif; font-size: 0.9rem; color: var(--ink-faded); text-decoration: none; display: block; padding: 0.35rem 0.75rem; border-radius: 3px; border-left: 2px solid transparent; transition: all 0.3s; line-height: 1.35; }
+.toc-list a:hover { color: var(--ink); border-left-color: var(--gold-subtle); }
+.toc-list a.active { color: var(--ink); border-left-color: var(--gold); background: var(--gold-subtle); font-weight: 500; }
+.footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--gold-subtle); margin-top: 2rem; }
+.footer p { font-size: 0.85rem; color: var(--ink-faded); letter-spacing: 0.05em; }
+.footer a { color: var(--ink-faded); text-decoration: none; border-bottom: 1px dotted var(--gold-light); }
+.footer a:hover { color: var(--gold); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.fade-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-section.visible { opacity: 1; transform: translateY(0); }
+@media (max-width: 768px) { body { font-size: 17px; } .article { padding: 1.5rem 1.25rem 4rem; } .mapping { padding: 1rem 1.25rem; } blockquote { padding: 1.25rem 1rem; } blockquote p { font-size: 1.2rem; } .hero { padding: 3rem 1.5rem; } .toc-panel { width: 260px; right: -280px; } .top-nav { padding: 0.5rem 1rem; } }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<nav class="top-nav" id="topNav">
+  <a class="top-nav-brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <span class="nav-deva">श्रुति</span> Śruti II
+  </a>
+  <button class="top-nav-toggle" onclick="toggleToc()">Contents ॥</button>
+</nav>
+<div class="toc-overlay" id="tocOverlay" onclick="toggleToc()"></div>
+<aside class="toc-panel" id="tocPanel">
+  <button class="toc-close" onclick="toggleToc()">×</button>
+  <div class="toc-title">Volume II · Contents</div>
+  <ul class="toc-list" id="tocList">
+    <li><a href="#part1">I · The Oldest Branch</a></li>
+    <li><a href="#part2">II · The Deva/Asura Split</a></li>
+    <li><a href="#part3">III · The Steppe Road</a></li>
+    <li><a href="#part4">IV · Lithuania</a></li>
+    <li><a href="#part5">V · The Norse</a></li>
+    <li><a href="#part6">VI · The Varangian Corridor</a></li>
+    <li><a href="#part7">VII · What England Lost</a></li>
+    <li><a href="#part8">VIII · The Reverse Engineer</a></li>
+  </ul>
+</aside>
+<header class="hero">
+  <div class="hero-devanagari">श्रुति · खण्डः 2</div>
+  <h1 class="hero-title">Śruti</h1>
+  <div class="hero-subtitle">That Which Was Heard</div>
+  <div class="hero-divider"></div>
+  <div class="hero-essay-title">The Road from the Ṛṣis</div>
+  <div class="hero-essay-sub">How the Vedic World Became Europe — and How Tolkien Walked the Road Backward</div>
+  <div class="hero-author">Braxton Bailey · February 2026</div>
+  <div class="hero-scroll">
+    <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</header>
+<article class="article">
+
+<!-- ═══ PART I ═══ -->
+<section class="fade-section">
+<span class="section-number">Part I</span>
+<h2 id="part1">The Oldest Branch — What the Linguistic Evidence Actually Shows</h2>
+
+<p>Every language in the Indo-European family — Latin, Greek, Old Norse, Gothic, Lithuanian, Persian, Celtic, Slavic — can be traced backward through regular sound-change rules toward a reconstructed ancestor. Western linguists call this ancestor <a href="https://en.wikipedia.org/wiki/Proto-Indo-European_language" class="wiki" target="_blank" rel="noopener">Proto-Indo-European</a> (PIE). It is a ghost language — no text, no inscription, no direct evidence. It exists only as a mathematical projection backward from its descendants.</p>
+<p>But there is one language that barely needs reconstruction. It survived.</p>
+<p><a href="https://en.wikipedia.org/wiki/Vedic_Sanskrit" class="wiki" target="_blank" rel="noopener">Vedic Sanskrit</a> preserves more archaic Indo-European forms than any other recorded language. Its phonology, morphology, verb system, and nominal declensions are so conservative that when 19th-century European scholars first encountered it, it became the master key for reconstructing PIE itself. Without Sanskrit, PIE reconstruction would be impossible. This is not disputed by any school of linguistics.</p>
+<h3>The Evidence on the Table</h3>
+<p>What follows are facts — agreed upon across academic traditions — not theories:</p>
+<p><strong>Fact:</strong> Sanskrit preserves the most archaic phonological system in the family. The eight-case nominal declension, the full range of ablaut grades, the pitch accent system, the dual number — all present in Vedic, all partially or fully lost in every other branch.</p>
+<p><strong>Fact:</strong> The further a language is from the India-Iran zone, the more phonological drift it shows from the reconstructed proto-forms. Lithuanian preserves more than Germanic. Germanic preserves more than Celtic. This is a gradient, and it runs outward from South Asia.</p>
+<p><strong>Fact:</strong> Vedic Sanskrit and <a href="https://en.wikipedia.org/wiki/Avestan" class="wiki" target="_blank" rel="noopener">Avestan</a> — the sacred language of Zoroastrianism — are so close that scholars can convert one to the other by applying regular sound-change rules. They are the two closest siblings in the entire family, closer to each other than any other pair. This means they split most recently from a common ancestor — or one from the other.</p>
+<p><strong>Fact:</strong> The <a href="https://en.wikipedia.org/wiki/Rigveda" class="wiki" target="_blank" rel="noopener">Ṛg Veda</a> is the oldest text in any Indo-European language. No text in Greek, Latin, Germanic, or Celtic comes close to its antiquity. The oldest European texts appear over a thousand years after the Ṛg Veda's likely composition.</p>
+<div class="scroll-table">
+<table>
+<thead><tr><th>Meaning</th><th>Sanskrit</th><th>Greek</th><th>Lithuanian</th><th>Latin</th><th>Old Norse</th></tr></thead>
+<tbody>
+<tr><td>God / Divine</td><td><strong>devá</strong></td><td>theós</td><td><strong>dievas</strong></td><td>deus</td><td>tívar</td></tr>
+<tr><td>Mother</td><td><strong>mātṛ</strong></td><td>mḗtēr</td><td>motė</td><td>māter</td><td>móðir</td></tr>
+<tr><td>Father</td><td><strong>pitṛ</strong></td><td>patḗr</td><td>—</td><td>pater</td><td>faðir</td></tr>
+<tr><td>Fire</td><td><strong>agní</strong></td><td>—</td><td><strong>ugnis</strong></td><td>ignis</td><td>—</td></tr>
+<tr><td>Son</td><td><strong>sūnu</strong></td><td>huiós</td><td><strong>sūnus</strong></td><td>—</td><td>sunr</td></tr>
+<tr><td>Horse</td><td><strong>áśva</strong></td><td>híppos</td><td><strong>ašvà</strong></td><td>equus</td><td>—</td></tr>
+<tr><td>Sky Father</td><td><strong>Dyauṣ Pitā</strong></td><td>Zeus Patḗr</td><td><strong>Dievas</strong></td><td>Jupiter</td><td>Týr</td></tr>
+</tbody>
+</table>
+</div>
+<p>The last row is the key. <a href="https://en.wikipedia.org/wiki/Dyaus_Pita" class="wiki" target="_blank" rel="noopener">Dyauṣ Pitā</a> — the Vedic sky father — is the same figure as <a href="https://en.wikipedia.org/wiki/Zeus" class="wiki" target="_blank" rel="noopener">Zeus</a> Patḗr, <a href="https://en.wikipedia.org/wiki/Jupiter_(mythology)" class="wiki" target="_blank" rel="noopener">Jupiter</a> (Ju-piter = Dyaus-Pitar), and Norse <a href="https://en.wikipedia.org/wiki/T%C3%BDr" class="wiki" target="_blank" rel="noopener">Týr</a>. Not similar gods. The <strong>same god</strong>. The Sanskrit form is closest to the reconstructed original. Every other form shows additional sound changes.</p>
+<h3>The Standard Model and Its Problems</h3>
+<p>The dominant academic model places the PIE homeland on the <a href="https://en.wikipedia.org/wiki/Pontic%E2%80%93Caspian_steppe" class="wiki" target="_blank" rel="noopener">Pontic-Caspian steppe</a> — modern Ukraine and southern Russia — and proposes that the <a href="https://en.wikipedia.org/wiki/Yamnaya_culture" class="wiki" target="_blank" rel="noopener">Yamnaya</a> culture (c. 3300–2600 BCE) carried PIE outward in all directions. Genetic evidence confirms that the Yamnaya did expand massively, both west into Europe and east to the Altai Mountains. This expansion is real. Nearly half of modern Europeans carry significant Yamnaya ancestry.</p>
+<p>But the Yamnaya are a dispersal mechanism — not necessarily the origin of the traditions they carried. The genetic evidence shows that the Yamnaya themselves were a <strong>mixture</strong>: Eastern Hunter-Gatherers from the north and <strong>Caucasus/Iranian-linked populations from the south</strong>. A 2014 study by Underhill et al. found a compelling case for the Middle East, possibly near present-day Iran, as the geographic origin of haplogroup R1a — a finding that complicates any simple steppe-origin narrative. The cultural content — fire ceremonies, the tripartite social structure, the theological vocabulary — may be older than the vehicle that dispersed it.</p>
+<h3>The Internal Evidence of the Text Itself</h3>
+<p>Western Indologists from Oldenberg onward established a relative chronology of the Ṛg Veda's ten books (maṇḍalas). The "family books" (2–4, 6–7) are agreed to be the oldest layer. Books 5, 1, 8–10 are later. This chronological framework is not disputed by any major school.</p>
+<p>Indian scholar <strong>Shrikant Talageri</strong>, in <strong>The Rigveda and the Avesta: The Final Evidence</strong> (2008), applied this Western-established chronology to the <strong>geographical data within the text itself</strong> — and found that the oldest books know only the eastern rivers (the Sarasvatī, the Gaṅgā basin, Haryana). The Indus and the rivers to its west appear only in the middle and late books. The names of western animals, places, mountains, and lakes — Afghanistan, Central Asia — appear only in the latest books. The geographic expansion moves <strong>from east to west across the chronological layers of the text</strong>.</p>
+<p>Talageri further showed that the personal names and cultural vocabulary shared between the Ṛg Veda and the Avesta are concentrated overwhelmingly in the late books — not the early ones. The Avestan tradition is contemporaneous with the <strong>later</strong> period of Ṛg Vedic composition, not the earlier. This means the Zoroastrian departure happened during the Ṛg Veda's own history, not before it.</p>
+<p>Greek scholar <strong>Nicholas Kazanas</strong> reached similar conclusions through independent analysis: the Vedic texts preserve linguistic and cultural forms too archaic to have been carried in from outside during the proposed migration window. K.D. Sethna demonstrated that cotton (<strong>karpāsa</strong>), present in Harappan cities from 2600 BCE, is absent from the Ṛg Veda — suggesting the Ṛg Veda predates even the mature Harappan period.</p>
+<p>It is worth noting that <strong>B.R. Ambedkar</strong> — who had every political reason to accept a theory of Aryan invasion, as it would validate his critique of caste hierarchy as a foreign imposition — examined the evidence and rejected both the racial invasion theory and the idea of Aryans as a distinct ethnic group. The evidence did not support it. Scholars from radically different political positions have independently found the standard model insufficient. This is not a nationalist argument. It is a textual and linguistic one.</p>
+<h3>The Questions the Standard Model Leaves Open</h3>
+<p>The Vedic texts contain no migration narrative. The Ṛg Veda describes a civilization living on the banks of the <a href="https://en.wikipedia.org/wiki/Sarasvati_River" class="wiki" target="_blank" rel="noopener">Sarasvatī River</a> and the Indus system. It does not describe arriving there. The geography is local. The rivers are Indian rivers.</p>
+<p>The Sarasvatī is particularly significant. The Ṛg Veda hymns it as a mighty river — the greatest of rivers. But the Sarasvatī dried up. Geological evidence confirms that the <a href="https://en.wikipedia.org/wiki/Ghaggar-Hakra_River" class="wiki" target="_blank" rel="noopener">Ghaggar-Hakra</a> river system dried up between 2500 and 1900 BCE. If the Ṛg Veda describes the Sarasvatī as a living, mighty river, the hymns must predate 1900 BCE — which places them before or at the very beginning of the Yamnaya expansion window.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Indus_Valley_Civilisation" class="wiki" target="_blank" rel="noopener">Indus Valley Civilization</a> was one of the most advanced urban civilizations on earth by 2500 BCE. The majority of Harappan sites are located not on the Indus but on the Sarasvatī-Ghaggar-Hakra system — the same river the Ṛg Veda celebrates. There is no archaeological evidence of agriculture being introduced to India from outside; it developed independently. And there is no evidence of a violent invasion or cultural rupture at the supposed migration date. As the American archaeologist <strong>James Shaffer</strong> concluded in 1984, there is zero archaeological proof for an Aryan invasion — including a peaceful immigration.</p>
+<h3>What This Essay Argues</h3>
+<p>This volume does not claim to resolve the homeland debate. What it traces is the <strong>direction of degradation</strong>. Wherever the original source was — and the linguistic evidence points most naturally to the India-Iran zone — what is observable and provable is this: Sanskrit preserves the most. Avestan preserves the next most. Lithuanian preserves more than Germanic. Norse preserves fragments. English preserves almost nothing.</p>
+<p>Koenraad Elst and Talageri have argued that the findings of Historical and Comparative Linguistics are perfectly compatible with emigration from an Indian homeland, and marginally indicate it. Whether one accepts that conclusion or not, the <strong>direction of the gradient is not in dispute</strong>. The degradation runs outward. The oldest text is Indian. The oldest branch is Sanskrit.</p>
+<p>That gradient is the road this volume follows. From the oldest branch outward, through the Zoroastrian split, across the steppe, into the Baltic, through Scandinavia, to England — where Tolkien, the philologist, picked up the scattered fragments and walked the road backward.</p>
+<p>The traditions are older than the migration. The migration is the catalyst. The split is what set the fragments moving across the earth.</p>
+
+</section>
+
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">॥</span><span class="divider-line"></span></div>
+
+<!-- ═══ PART II ═══ -->
+<section class="fade-section">
+<span class="section-number">Part II</span>
+<h2 id="part2">The First Departure — The Bhṛgus, the Fire, and Zoroastrianism</h2>
+
+<p>The most dramatic evidence of the split is not a word table. It is a theological civil war.</p>
+<p>The branch that moved into the Iranian plateau became the <a href="https://en.wikipedia.org/wiki/Zoroastrianism" class="wiki" target="_blank" rel="noopener">Zoroastrian</a> civilization. <a href="https://en.wikipedia.org/wiki/Vedic_Sanskrit" class="wiki" target="_blank" rel="noopener">Vedic Sanskrit</a> and <a href="https://en.wikipedia.org/wiki/Avestan" class="wiki" target="_blank" rel="noopener">Avestan</a> are so close that scholars can convert one to the other by applying regular sound-change rules. They are siblings who left the same house and stopped speaking.</p>
+<p>And then they inverted each other's gods.</p>
+<p>In the Vedic tradition, the <a href="https://en.wikipedia.org/wiki/Deva_(Hinduism)" class="wiki" target="_blank" rel="noopener">Devas</a> are the gods — radiant, celestial. The <a href="https://en.wikipedia.org/wiki/Asura" class="wiki" target="_blank" rel="noopener">Asuras</a> are the enemies. In Zoroastrianism, it is exactly reversed. <a href="https://en.wikipedia.org/wiki/Ahura_Mazda" class="wiki" target="_blank" rel="noopener">Ahura Mazda</a> — linguistically identical to "Asura Medhā" — is the supreme God. And the <em>Daēvas</em> are demons.</p>
+<div class="scroll-table">
+<table>
+<thead><tr><th>Term</th><th>Vedic Meaning</th><th>Zoroastrian Meaning</th></tr></thead>
+<tbody>
+<tr><td><strong>Deva / Daēva</strong></td><td>God, divine being</td><td>Demon, false god</td></tr>
+<tr><td><strong>Asura / Ahura</strong></td><td>Enemy of the gods</td><td>Supreme God (Ahura Mazda)</td></tr>
+<tr><td><strong>Indra</strong></td><td>King of the gods</td><td>A daēva — a demon</td></tr>
+<tr><td><strong>Soma / Haoma</strong></td><td>Sacred ritual drink</td><td>Sacred ritual drink (preserved)</td></tr>
+<tr><td><strong>Yajña / Yasna</strong></td><td>Fire sacrifice</td><td>Fire ceremony (preserved)</td></tr>
+</tbody>
+</table>
+</div>
+<p>This is not random divergence. This is a schism. Two branches of one priestly tradition who disagreed so fundamentally that they demonized each other's gods — while keeping the same fire ceremonies, the same sacred drink, the same cosmological framework.</p>
+<div class="mapping">
+<div class="mapping-title">Tolkien's Deva/Asura Structure</div>
+<p>The <a href="https://en.wikipedia.org/wiki/The_Silmarillion" class="wiki" target="_blank" rel="noopener">Silmarillion</a> is built on exactly this structure: the <a href="https://en.wikipedia.org/wiki/Vala_(Middle-earth)" class="wiki" target="_blank" rel="noopener">Valar</a> and <a href="https://en.wikipedia.org/wiki/Morgoth" class="wiki" target="_blank" rel="noopener">Morgoth</a> were once part of the same divine order. Morgoth's rebellion didn't create a separate cosmos — it inverted the one he came from. He took the same music and played it backward. The Deva/Asura split is the theological DNA of Tolkien's entire mythology.</p>
+</div>
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">·</span><span class="divider-line"></span></div>
+<h3>Varuṇa ↔ Ahura Mazda — The Wise Lord on Both Sides</h3>
+<p>The most specific mapping between the two traditions is <a href="https://en.wikipedia.org/wiki/Varuna" class="wiki" target="_blank" rel="noopener">Varuṇa</a> and <a href="https://en.wikipedia.org/wiki/Ahura_Mazda" class="wiki" target="_blank" rel="noopener">Ahura Mazda</a>. In the earliest layers of the Ṛg Veda — before the Deva/Asura distinction hardened — Varuṇa is called <strong>Asura</strong> as a title of supreme sovereignty. He is the lord of <span class="sk">ṛta</span> (cosmic truth and order), the watcher of moral conduct, the one who binds oath-breakers with his noose (<span class="sk">pāśa</span>). He governs silently, seeing everything.</p>
+<p>Ahura Mazda governs <strong>aša</strong> — which is literally the same word as ṛta, run through Avestan sound changes (Sanskrit <span class="sk">ṛ</span> → Avestan <span class="sk">a</span>, Sanskrit <span class="sk">t</span> → Avestan <span class="sk">š</span>). Same word. Same concept. Same god. Both are sovereign judges of moral order rather than warrior gods of force. Varuṇa watches; Indra strikes. Ahura Mazda judges; the Daēvas rage. The Zoroastrian branch elevated the sovereign judge and demonized the warrior. The Vedic branch elevated the warrior pantheon and gradually diminished Varuṇa — who goes from one of the most important gods in the early Ṛg Veda to a relatively minor water deity in later Hinduism.</p>
+<p>Both sides kept their god and demonized the other's. It is a theological divorce where each side got custody of different aspects of the original.</p>
+<h3>What Caused the Split?</h3>
+<p>The demonization did not happen in the oldest texts on either side. In the earliest Ṛg Veda, "Asura" was a title of respect — Varuṇa, <a href="https://en.wikipedia.org/wiki/Agni" class="wiki" target="_blank" rel="noopener">Agni</a>, even Indra are called Asura, meaning "lord." In the <a href="https://en.wikipedia.org/wiki/Gathas" class="wiki" target="_blank" rel="noopener">Gāthās</a> — the oldest Zoroastrian texts, composed by <a href="https://en.wikipedia.org/wiki/Zoroaster" class="wiki" target="_blank" rel="noopener">Zarathustra</a> himself — the Daēvas are still genuine gods who are rejected but not yet fully demonized. The full inversion happened gradually, on both sides.</p>
+<p>Three explanations emerge from the scholarship:</p>
+<p><strong>The Reformer.</strong> Zarathustra elevated Ahura Mazda as the one supreme God and rejected polytheistic Deva worship — essentially a monotheistic revolution against the Vedic multiplicity of gods. He laid emphasis on ethical living over ritual sacrifice. A Martin Luther of the ancient world.</p>
+<p><strong>The Priestly Faction.</strong> A specific priestly lineage — possibly connected to the Bhṛgu clan, whose name appears in both traditions — broke away, carrying the fire ceremonies but rejecting the Deva pantheon. A schism within the priesthood itself.</p>
+<p><strong>The Actual War.</strong> If the mythological element is stripped from the Deva-Asura war narratives in the Vedas and Brāhmaṇa texts, they appear to reflect violent conflict between Vedic and Zoroastrian factions. One researcher argues that the Vedic people lost their position gradually and had to vacate territory or submit to Zoroastrian religion. The myths of Deva victory may be retrospective self-glorification — the losers rewriting themselves as winners.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Shatapatha_Brahmana" class="wiki" target="_blank" rel="noopener">Śatapatha Brāhmaṇa</a> tells the story directly: "The gods and asuras, both descendants of Prajāpati, obtained their father's inheritance — truth and falsehood. The gods adopted truth; the asuras adopted falsehood." Both sides are children of the same father. They inherit the same tradition. Then one side takes truth and the other takes the lie — <strong>from the Vedic perspective</strong>. The Zoroastrians told the exact same story in reverse.</p>
+<p>And Martin Haug observed in 1884 that this mutual demonization is the reason the English words <strong>"divine"</strong> and <strong>"devil"</strong> have the same etymology but opposite meanings. Divine comes from <span class="sk">Deva</span>. Devil comes from <span class="sk">Daēva</span>. The theological civil war is baked into the English language itself.</p>
+<span class="fn" onclick="toggleFn('3')">3</span>
+<div class="footnote-panel" id="fn-3"><div class="footnote-panel-inner"><span class="fn-source">Martin Haug, Essays on the Sacred Language, Writings, and Religion of the Parsis (1884).</span> Haug first postulated the thesis that the transition of both Asura and Deva into designations for demons was based on a prehistoric religious schism.</div></div>
+<h3>The Deeper Layer — Enki and Enlil: The Sumerian Prototype</h3>
+<p>The Deva/Asura split did not originate in a vacuum. It has a <strong>Sumerian prototype</strong> that predates both the Vedic and Zoroastrian versions by centuries — and it revolves around two brothers.</p>
+<p><a href="https://en.wikipedia.org/wiki/Enki" class="wiki" target="_blank" rel="noopener">Enki</a> — lord of wisdom, fresh water, creation, and healing — created humanity from clay, gave them language, and repeatedly saved them from destruction. <a href="https://en.wikipedia.org/wiki/Enlil" class="wiki" target="_blank" rel="noopener">Enlil</a> — lord of air, storms, command, and divine law — sent the flood to exterminate humanity because they made too much noise and disturbed the cosmic order. In the <a href="https://en.wikipedia.org/wiki/Atra-Hasis" class="wiki" target="_blank" rel="noopener">Atra-Hasis</a> epic, Enki secretly warns his mortal protégé to build a boat, directly subverting Enlil's decree of annihilation.</p>
+<p>Enlil rules through command and hierarchy. Enki leads through knowledge and subtle influence. Their conflict is not a battle — it is a philosophical disagreement about the nature of divine authority: should the gods impose control, or guide through wisdom?</p>
+<p>Now watch the pattern cascade across traditions:</p>
+<div class="scroll-table">
+<table>
+<thead><tr><th>Role</th><th>Sumerian</th><th>Vedic</th><th>Zoroastrian</th><th>Tolkien</th></tr></thead>
+<tbody>
+<tr><td>Authority / Enforcer</td><td><strong>Enlil</strong> (air, storms, law)</td><td><strong>Indra</strong> (thunder, warrior, splitter)</td><td>Daēvas (rejected warrior gods)</td><td><strong>Manwë</strong> (lord of air and wind)</td></tr>
+<tr><td>Wisdom / Preserver</td><td><strong>Enki</strong> (water, wisdom, creation)</td><td><strong>Varuṇa</strong> (cosmic order, waters)</td><td><strong>Ahura Mazda</strong> (wise lord)</td><td><strong>Ulmo</strong> (lord of waters)</td></tr>
+<tr><td>The Flood</td><td>Enlil sends it; Enki saves Ziusudra</td><td>Viṣṇu as Matsya saves Manu</td><td>Preserved in Yima/Jamshid narrative</td><td>Númenor drowned; faithful survive</td></tr>
+<tr><td>The Split</td><td>Two brothers disagree on humanity's fate</td><td>Devas and Asuras inherit truth and falsehood</td><td>Ahura and Daēva invert</td><td>Ainur split: Morgoth rebels against Ilúvatar's music</td></tr>
+</tbody>
+</table>
+</div>
+<p>Enki maps to Varuṇa maps to Ahura Mazda: the wise lord of the deep waters who preserves knowledge and life. Enlil maps to Indra: the sky lord, the enforcer, the storm-bringer who strikes down what threatens the cosmic order. The Sumerian rift is the prototype. The Vedic/Zoroastrian split carries the same argument forward. And Tolkien — who studied all of these traditions through their linguistic fossils — encoded the same dynamic into the Ainur: <a href="https://en.wikipedia.org/wiki/Manw%C3%AB" class="wiki" target="_blank" rel="noopener">Manwë</a>, lord of the winds (Enlil), and <a href="https://en.wikipedia.org/wiki/Ulmo" class="wiki" target="_blank" rel="noopener">Ulmo</a>, lord of the waters (Enki), who alone among the Valar never stopped caring for the fate of the Children of Ilúvatar.</p>
+<p>Even the <a href="https://en.wikipedia.org/wiki/Apkallu" class="wiki" target="_blank" rel="noopener">Apkallū</a> — the seven sages of Enki who were created to teach wisdom to humanity — map to the Vedic <a href="https://en.wikipedia.org/wiki/Saptarishi" class="wiki" target="_blank" rel="noopener">Saptaṛṣi</a>, the seven seers who received and transmitted the Vedas. Enki's sages and the Vedic ṛṣis serve the same function: divine knowledge, carried to humanity, through a lineage of seven. As we traced in Volume I — this is not metaphor. It is the same tradition, told in cuneiform and in Sanskrit.</p>
+
+</section>
+
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">ॐ</span><span class="divider-line"></span></div>
+
+<!-- ═══ PART III ═══ -->
+<section class="fade-section">
+<span class="section-number">Part III</span>
+<h2 id="part3">The Steppe Road — Scythians as the Carrier Culture</h2>
+
+<p>Between the Vedic south and the Norse north, there is a bridge — and that bridge had horses.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Scythians" class="wiki" target="_blank" rel="noopener">Scythians</a> were the dominant culture of the Eurasian steppe from roughly the 9th to the 3rd century BCE. Their territory stretched from the Black Sea to Siberia. <a href="https://en.wikipedia.org/wiki/Herodotus" class="wiki" target="_blank" rel="noopener">Herodotus</a> documented their customs in detail, and what he describes is a culture carrying Vedic patterns across the entire breadth of the continent.</p>
+<h3>The Warrior Aristocracy</h3>
+<p>Their society was stratified into a priestly class, a warrior class, and a pastoral class. This is the <a href="https://en.wikipedia.org/wiki/Varna_(Hinduism)" class="wiki" target="_blank" rel="noopener">varṇa</a> system in motion across the steppe. The same tripartite structure that <a href="https://en.wikipedia.org/wiki/Georges_Dum%C3%A9zil" class="wiki" target="_blank" rel="noopener">Georges Dumézil</a> identified as the fundamental organizing principle of all Indo-European societies.</p>
+<p>Scythian <a href="https://en.wikipedia.org/wiki/Kurgan" class="wiki" target="_blank" rel="noopener">kurgans</a> contain warrior kings interred with their horses, their weapons, their gold. The <a href="https://en.wikipedia.org/wiki/Pazyryk_burials" class="wiki" target="_blank" rel="noopener">Pazyryk burials</a> in the Altai Mountains preserved frozen Scythian remains with elaborate tattoos of animal combat — griffins fighting deer, eagles killing serpents. The imagery is Vedic: order consuming chaos, the eagle (Garuḍa) killing the serpent (nāga).</p>
+<h3>The Shamanic Seers</h3>
+<p>Herodotus records that the Scythians used hemp smoke in enclosed tents to induce trance states. This is the <a href="https://en.wikipedia.org/wiki/Soma_(drink)" class="wiki" target="_blank" rel="noopener">soma</a> tradition in transit. The Vedic <span class="sk">somayāga</span> — the fire ceremony where soma is pressed to open perception — finds its steppe equivalent in the Scythian smoke tent. The technology changes. The function is identical.</p>
+<span class="fn" onclick="toggleFn('1')">1</span>
+<div class="footnote-panel" id="fn-1"><div class="footnote-panel-inner"><span class="fn-source">Herodotus, Histories, Book IV, 73–75.</span> "The Scyths, delighted, shout for joy."</div></div>
+<div class="mapping">
+<div class="mapping-title">The Rohirrim — Tolkien's Steppe Warriors</div>
+<p>The <a href="https://en.wikipedia.org/wiki/Rohan_(Middle-earth)" class="wiki" target="_blank" rel="noopener">Rohirrim</a> are explicitly Anglo-Saxon in language — Tolkien gave them Old English names. But their way of life — horse-lords of open grasslands, burial mounds, a warrior aristocracy — is pure steppe culture. Tolkien dressed them in Anglo-Saxon words, but their bones are from the steppe.</p>
+</div>
+
+</section>
+
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">॥</span><span class="divider-line"></span></div>
+
+<!-- ═══ PART IV ═══ -->
+<section class="fade-section">
+<span class="section-number">Part IV</span>
+<h2 id="part4">The Baltic Snapshot — Lithuania as Living Proof</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Lithuanian_language" class="wiki" target="_blank" rel="noopener">Lithuanian</a> is the closest living European language to Sanskrit. This is not folklore — it is one of the most well-established facts in historical linguistics.</p>
+<div class="scroll-table">
+<table>
+<thead><tr><th>Meaning</th><th>Sanskrit</th><th>Lithuanian</th></tr></thead>
+<tbody>
+<tr><td>God</td><td><strong>devá</strong></td><td><strong>dievas</strong></td></tr>
+<tr><td>Fire</td><td><strong>agní</strong></td><td><strong>ugnis</strong></td></tr>
+<tr><td>Son</td><td><strong>sūnu</strong></td><td><strong>sūnus</strong></td></tr>
+<tr><td>Smoke</td><td><strong>dhūmá</strong></td><td><strong>dūmai</strong></td></tr>
+<tr><td>Alive</td><td><strong>jīvá</strong></td><td><strong>gyvas</strong></td></tr>
+<tr><td>Widow</td><td><strong>vidhávā</strong></td><td><strong>viduvė</strong></td></tr>
+</tbody>
+</table>
+</div>
+<p>A Lithuanian farmer saying "God is alive" — <em>Dievas gyvas</em> — would be understood by a Vedic priest saying <em>Devas jīvas</em>. The gap is five thousand years and four thousand miles. The words survived almost intact.</p>
+<p>Lithuania was the last European nation to Christianize — in 1387. Until then, the Balts maintained a living pagan tradition with sacred groves, perpetual sacred fires, and a thunder god — <a href="https://en.wikipedia.org/wiki/Perk%C5%ABnas" class="wiki" target="_blank" rel="noopener">Perkūnas</a> — who wields the thunderbolt and strikes the serpent. Perkūnas = Indra = Thor. Same function, same weapon, same enemy.</p>
+
+</section>
+
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">ॐ</span><span class="divider-line"></span></div>
+
+<!-- ═══ PART V ═══ -->
+<section class="fade-section">
+<span class="section-number">Part V</span>
+<h2 id="part5">The Northern Road — What the Norse Remembered and What They Forgot</h2>
+
+<h3>Odin and the Runes — Śruti in the North</h3>
+<p><a href="https://en.wikipedia.org/wiki/Odin" class="wiki" target="_blank" rel="noopener">Odin</a> hangs on <a href="https://en.wikipedia.org/wiki/Yggdrasil" class="wiki" target="_blank" rel="noopener">Yggdrasil</a> for nine nights, pierced by his own spear, sacrificing himself to himself, in order to receive the <a href="https://en.wikipedia.org/wiki/Runes" class="wiki" target="_blank" rel="noopener">runes</a>. He does not invent them. He <strong>receives</strong> them. This is <span class="sk">śruti</span> — "that which was heard." The same transmission model as the Vedic ṛṣis.</p>
+<blockquote>
+<p>I know that I hung on a windy tree, nine long nights, wounded with a spear, dedicated to Odin, myself to myself, on that tree of which no man knows from where its roots run.</p>
+<cite>— Hávamál, stanza 138</cite>
+</blockquote>
+<h3>The Völvas — Degraded Ṛṣis</h3>
+<p>The <a href="https://en.wikipedia.org/wiki/V%C3%B6lva" class="wiki" target="_blank" rel="noopener">völvas</a> practiced <a href="https://en.wikipedia.org/wiki/Sei%C3%B0r" class="wiki" target="_blank" rel="noopener">seiðr</a> — trance prophecy. The structure is identical to the ṛṣi: altered consciousness → reception of cosmic knowledge → transmission to rulers. But without <a href="https://en.wikipedia.org/wiki/Dharma" class="wiki" target="_blank" rel="noopener">dharma</a> — the ethical framework that governed the ṛṣis. The technology of reception survived. The operating system did not.</p>
+<h3>Valhalla — The Kṣatriya Promise Without the Gītā</h3>
+<p><a href="https://en.wikipedia.org/wiki/Valhalla" class="wiki" target="_blank" rel="noopener">Valhalla</a> is the Kṣatriya promise: die fighting and you ascend. <a href="https://en.wikipedia.org/wiki/Bhagavad_Gita" class="wiki" target="_blank" rel="noopener">Gītā</a> 2.37 — Krishna tells Arjuna: "Slain, you will obtain heaven; victorious, you will enjoy the earth." Same teaching. But Krishna's instruction doesn't end there. The entire Gītā contextualizes that promise within <span class="sk">niṣkāma karma</span>, bhakti, jñāna. The Norse kept the first verse and lost the other seventeen chapters.</p>
+<h3>The Matsya Pattern — The Fisher-Girl at the Edge</h3>
+<p>In the Mahābhārata, <a href="https://en.wikipedia.org/wiki/Satyavati" class="wiki" target="_blank" rel="noopener">Satyavatī</a> is the fisher-girl — born on the river, raised by a fisherman. She becomes the matriarch of the entire Kuru dynasty. Without her, no <a href="https://en.wikipedia.org/wiki/Vyasa" class="wiki" target="_blank" rel="noopener">Vyāsa</a>. Without Vyāsa, no epic. The <a href="https://en.wikipedia.org/wiki/Matsya" class="wiki" target="_blank" rel="noopener">Matsya</a> archetype — the river-woman who carries hidden knowledge — appears throughout Norse literature. The pattern survived as folklore. The metaphysics were forgotten.</p>
+
+</section>
+
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">॥</span><span class="divider-line"></span></div>
+
+<!-- ═══ PART VI ═══ -->
+<section class="fade-section">
+<span class="section-number">Part VI</span>
+<h2 id="part6">The Varangian Corridor — Vikings on the Vedic Road</h2>
+
+<p>The <a href="https://en.wikipedia.org/wiki/Varangians" class="wiki" target="_blank" rel="noopener">Varangians</a> established trade routes from Scandinavia down the great rivers of Russia: the Volga, the Dnieper, the Don. These rivers carried them to the <a href="https://en.wikipedia.org/wiki/Byzantine_Empire" class="wiki" target="_blank" rel="noopener">Byzantine Empire</a>, to the <a href="https://en.wikipedia.org/wiki/Abbasid_Caliphate" class="wiki" target="_blank" rel="noopener">Abbasid Caliphate</a>, and to the borders of Persia.</p>
+<p><a href="https://en.wikipedia.org/wiki/Ahmad_ibn_Fadlan" class="wiki" target="_blank" rel="noopener">Ibn Fadlān</a>, the 10th-century Arab traveler, witnessed a Viking ship burial on the Volga and recorded it in extraordinary detail — including ritual sacrifice and trance states that mirror both Scythian kurgans and Vedic funeral rites.</p>
+<span class="fn" onclick="toggleFn('2')">2</span>
+<div class="footnote-panel" id="fn-2"><div class="footnote-panel-inner"><span class="fn-source">Ahmad ibn Fadlān, Risāla (c. 922 CE).</span> The most detailed contemporary description of a Viking funeral.</div></div>
+<p>A <a href="https://en.wikipedia.org/wiki/Buddha" class="wiki" target="_blank" rel="noopener">Buddha</a> figurine was found in the Helgö treasure in Sweden — a 6th-century Indian bronze that traveled the Silk Road to Scandinavia. The roads were open. The traditions were in contact. The fragments were circulating.</p>
+
+</section>
+
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">ॐ</span><span class="divider-line"></span></div>
+
+<!-- ═══ PART VII ═══ -->
+<section class="fade-section">
+<span class="section-number">Part VII</span>
+<h2 id="part7">What England Lost — The Hole Tolkien Tried to Fill</h2>
+
+<p>England's problem — the problem that haunted Tolkien his entire life — was that it had no mythology. The Anglo-Saxons had one. They carried their gods — Woden, Thunor, Tiw — from the Germanic continent. Then Christianity arrived and inverted the old gods. Woden became a demon. The sacred groves were felled.</p>
+<blockquote>
+<p>I was from early days grieved by the poverty of my own beloved country: it had no stories of its own, not of the quality that I sought, and found in legends of other lands.</p>
+<cite>— J.R.R. Tolkien, Letter 131</cite>
+</blockquote>
+<p>Every tool in Tolkien's workshop pointed to Sanskrit. Comparative philology begins with Sanskrit. The reconstruction of PIE depends on Sanskrit. When he sat down to build a mythology, he built it from the deepest materials he had. And the deepest materials were Vedic.</p>
+
+</section>
+
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">॥</span><span class="divider-line"></span></div>
+
+<!-- ═══ PART VIII ═══ -->
+<section class="fade-section">
+<span class="section-number">Part VIII</span>
+<h2 id="part8">The Reverse Engineer — Tolkien Walking the Road Backward</h2>
+
+<h3>The Languages as Proof</h3>
+<p>Tolkien constructed entire languages — <a href="https://en.wikipedia.org/wiki/Quenya" class="wiki" target="_blank" rel="noopener">Quenya</a>, <a href="https://en.wikipedia.org/wiki/Sindarin" class="wiki" target="_blank" rel="noopener">Sindarin</a>, <a href="https://en.wikipedia.org/wiki/Khuzdul" class="wiki" target="_blank" rel="noopener">Khuzdul</a>, <a href="https://en.wikipedia.org/wiki/Black_Speech" class="wiki" target="_blank" rel="noopener">Black Speech</a> — and derived names from them. The multiple languages fragmenting across Middle-earth are Tolkien dramatizing the PIE split itself. The <a href="https://en.wikipedia.org/wiki/Sundering_of_the_Elves" class="wiki" target="_blank" rel="noopener">Sundering of the Elves</a> IS the Indo-European dispersal, told as mythology.</p>
+<h3>Númenor as the Memory of Unity</h3>
+<p><a href="https://en.wikipedia.org/wiki/N%C3%BAmenor" class="wiki" target="_blank" rel="noopener">Númenor</a> — the great island kingdom destroyed by divine judgment — is the memory of the unified civilization before the split. Its destruction and the scattering of the <a href="https://en.wikipedia.org/wiki/D%C3%BAnedain" class="wiki" target="_blank" rel="noopener">Dúnedain</a> is Babel, Indra, the flood — all compressed into one story.</p>
+<p>Aragorn is the Dúnedain who remembers enough to restore the line. He is the philologist's dream: the wanderer who walks every road, learns every language, and reunites what was scattered. He is, in a sense, Tolkien's self-portrait.</p>
+<h3>The Silmarils as the Lost Vedas</h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Silmaril" class="wiki" target="_blank" rel="noopener">Silmarils</a> — three jewels containing the light of the Two Trees — are the original, undivided knowledge. Stolen by Morgoth, scattered: one in the sea, one in the earth, one in the sky. The entire <a href="https://en.wikipedia.org/wiki/The_Silmarillion" class="wiki" target="_blank" rel="noopener">Silmarillion</a> is the story of trying to recover them. This is the Vedic narrative of knowledge in the Kali Yuga — the original light progressively lost as the ages decline.</p>
+<p>Tolkien carried his fragment. And it was enough.</p>
+
+</section>
+
+<div class="closing">
+<div class="divider"><span class="divider-line"></span><span class="divider-symbol">ॐ</span><span class="divider-line"></span></div>
+<div class="closing-om">ॐ शान्तिः</div>
+<div class="closing-mantra">ॐ नमो भगवते वासुदेवाय</div>
+<p class="closing-line">The road goes ever on. The source never moved.</p>
+</div>
+</article>
+<footer class="footer">
+<p style="margin-bottom: 1rem;">
+  <a href="volume1.html">I · Mahābhārata</a> · 
+  <a href="volume2.html">II · Ṛṣis</a> · 
+  <a href="volume3.html">III · Source Code</a> · 
+  <a href="volume4.html">IV · Kali's Corridor</a>
+</p>
+<p><a href="volume1.html">← Volume I</a> · <a href="volume3.html">Volume III →</a></p>
+<p>Śruti · Volume II · Braxton Bailey · 2026</p>
+<p style="margin-top: 0.5rem;">
+  <a href="https://www.instagram.com/jimi421" target="_blank" rel="noopener">Instagram</a> · 
+  <a href="https://www.linkedin.com/in/braxtonb-dev/" target="_blank" rel="noopener">LinkedIn</a>
+</p>
+</footer>
+<script>
+window.addEventListener('scroll', () => {
+  const st = window.pageYOffset;
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('progressBar').style.width = (docH > 0 ? (st / docH) * 100 : 0) + '%';
+  document.getElementById('topNav').classList.toggle('visible', st > 200);
+}, { passive: true });
+function toggleToc() {
+  document.getElementById('tocPanel').classList.toggle('open');
+  document.getElementById('tocOverlay').classList.toggle('open');
+}
+function toggleFn(id) {
+  const el = document.getElementById('fn-' + id);
+  if (el) el.classList.toggle('open');
+}
+const fadeSections = document.querySelectorAll('.fade-section');
+const fadeObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+fadeSections.forEach(s => fadeObs.observe(s));
+const sections = document.querySelectorAll('h2[id]');
+const tocLinks = document.querySelectorAll('.toc-list a');
+const tocObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      tocLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector('.toc-list a[href="#' + e.target.id + '"]');
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => tocObs.observe(s));
+</script>
+</body>
+</html>
